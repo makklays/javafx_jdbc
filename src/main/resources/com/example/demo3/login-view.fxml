@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.LoginController">
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="310.0" style="-fx-background-image: url('file:/home/alexander/IdeaProjects/demo3/src/main/resources/images/bots.jpg');">
+         <children>
+            <Label graphicTextGap="10.0" layoutX="69.0" layoutY="100.0" prefHeight="30.0" prefWidth="173.0" style="-fx-font-size: 24px;" text="AI Bot for SEO" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font></Label>
+            <Label layoutX="50.0" layoutY="451.0" text="Copyright (c). All right reserved." textFill="WHITE" />
+         </children>
+         <opaqueInsets>
+            <Insets right="30.0" top="30.0" />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane layoutX="310.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="110.0" layoutY="184.0" text="Login">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="235.0" text="Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="Registration" layoutX="127.0" layoutY="365.0" mnemonicParsing="false" onAction="#onRegistrationButtonClick" prefHeight="28.0" prefWidth="246.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Registration">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="Password" layoutX="172.0" layoutY="229.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="Login" layoutX="172.0" layoutY="178.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="175.0" layoutY="100.0" text="Secure login">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="127.0" layoutY="320.0" mnemonicParsing="false" onAction="#onEnterButtonClick" prefHeight="28.0" prefWidth="246.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Enter" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="alertText" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="280.0" prefHeight="16.0" prefWidth="341.0" textAlignment="CENTER" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

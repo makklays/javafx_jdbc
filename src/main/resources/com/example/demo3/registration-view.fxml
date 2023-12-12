@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.RegistrationController">
+   <children>
+      <Label layoutX="128.0" layoutY="53.0" prefHeight="57.0" prefWidth="222.0" text="Registration">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Button fx:id="buttonLogin" layoutX="300.0" layoutY="268.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="24.0" prefWidth="161.0" text="Login" />
+      <Button layoutX="300.0" layoutY="235.0" mnemonicParsing="false" prefWidth="161.0" text="Registration" />
+   </children>
+</AnchorPane>

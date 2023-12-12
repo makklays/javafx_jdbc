@@ -37,6 +37,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.Date;
 
@@ -88,17 +89,17 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show(); */
 
-        load(stage);
+        //load(stage);
 
         //RegistrationForm regForm = new RegistrationForm();
         //regForm.showForm(stage);
 
         //
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene1 = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
+        stage.setTitle("AI BOT for SEO");
         stage.setScene(scene1);
-        stage.show();*/
+        stage.show();
     }
 
     public static void main(String[] args) {
@@ -141,8 +142,9 @@ public class HelloApplication extends Application {
         password.setId("password_id");
         tf2.setAlignment(Pos.CENTER);
 
-        FileInputStream input = new FileInputStream("src/images/Cyberpolice.png"); // buks.png
-        Image image = new Image(input);
+        InputStream iconStream = getClass().getResourceAsStream("/images/Cyberpolice.png");
+        //FileInputStream input = new FileInputStream("src/images/Cyberpolice.png"); // buks.png
+        Image image = new Image(iconStream);
         ImageView img = new ImageView(image);
 
         img.setFitWidth(200);
@@ -431,23 +433,28 @@ class RegistrationForm
 }
 
 /******************************
- CREATE TABLE `polisman_users` (
+ CREATE TABLE `my_users` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `gender` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `jpost` varchar(25) DEFAULT NULL,
  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `city` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+ `is_auth` int(2) DEFAULT 0,
+ `code` varchar(25) DEFAULT NULL,
  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
+ KEY `login` (`login`),
  KEY `firstname` (`firstname`),
  KEY `lastname` (`lastname`),
+ KEY `password` (`password`),
  KEY `gender` (`gender`),
- KEY `jpost` (`jpost`),
+ KEY `is_auth` (`is_auth`),
+ KEY `code` (`code`),
  KEY `phone` (`phone`),
  KEY `email` (`email`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
