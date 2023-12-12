@@ -1,5 +1,6 @@
 package com.example.demo3;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -41,5 +42,9 @@ public class RegistrationController {
 
         //Stage primaryStage;
         //primaryStage.getScene().setRoot(LoginController.registrationScene());
+    }
+
+    public void onRegistrationButtonClick(ActionEvent actionEvent) {
+        //
     }
 }
