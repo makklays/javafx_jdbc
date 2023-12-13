@@ -74,7 +74,7 @@ public class LoginController {
 
                 // new scene 'layout-view.fxml'
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
-                Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
+                Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
                 Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
                 primaryStage.setScene(scene1);
 
