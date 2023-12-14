@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.CreditCardController">
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="260.0" style="-fx-background-color: #123456;">
+            <children>
+                <Label layoutX="23.0" layoutY="768.0" text="Copyright (c). All Right Reserved" textFill="#fcfcfc" />
+                <Label layoutX="20.0" layoutY="8.0" text="AI BOT of SEO" textFill="WHITE">
+                    <font>
+                        <Font size="31.0" />
+                    </font>
+                </Label>
+                <Button fx:id="CreditCardButton" layoutX="20.0" layoutY="59.0" mnemonicParsing="false" onAction="#CreditCardButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFFFFF;" text="Credit Cards" textFill="#123456" />
+                <Button fx:id="BanksButton" layoutX="20.0" layoutY="94.0" mnemonicParsing="false" onAction="#BanksButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Banks" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="129.0" mnemonicParsing="false" onAction="#SchemesButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Schemes" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="164.0" mnemonicParsing="false" onAction="#ChannelsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Channels" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="199.0" mnemonicParsing="false" onAction="#CompaniesButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Companies" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="234.0" mnemonicParsing="false" onAction="#SettingButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Settings" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="268.0" mnemonicParsing="false" onAction="#StatisticsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Statistics" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="303.0" mnemonicParsing="false" onAction="#SettingButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Settings" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="338.0" mnemonicParsing="false" onAction="#InfoButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Info" textFill="#123456" />
+                <Button fx:id="ExitButton" layoutX="20.0" layoutY="727.0" mnemonicParsing="false" onAction="#ExitButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Exit" textFill="#123456" />
+                <ImageView fitHeight="192.0" fitWidth="205.0" layoutX="31.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('file:/home/alexander/IdeaProjects/demo3/src/main/resources/images/bot1.png');" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="260.0" prefHeight="800.0" prefWidth="840.0">
+            <children>
+                <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Credit Cards">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="26.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="List of Credit Cards from Banks" />
+            <TableView fx:id="CreditCardTable" layoutX="11.0" layoutY="74.0" prefHeight="673.0" prefWidth="818.0">
+              <columns>
+                <TableColumn fx:id="Column1" prefWidth="81.0" text="Account" />
+                <TableColumn fx:id="Column2" prefWidth="69.0" text="Bank" />
+                  <TableColumn fx:id="Column3" prefWidth="93.0" text="Firstname" />
+                  <TableColumn fx:id="Column4" prefWidth="85.0" text="Lastname" />
+                  <TableColumn fx:id="Column5" minWidth="6.0" prefWidth="94.0" text="Amount" />
+                  <TableColumn fx:id="Column6" prefWidth="71.0" text="Currency" />
+                  <TableColumn fx:id="Column7" prefWidth="111.0" text="From account" />
+                  <TableColumn fx:id="Column8" prefWidth="119.0" text="Phone" />
+              </columns>
+            </TableView>
+            <Button layoutX="748.0" layoutY="41.0" mnemonicParsing="false" text="Search" />
+            <TextField layoutX="521.0" layoutY="41.0" prefHeight="24.0" prefWidth="219.0" />
+
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

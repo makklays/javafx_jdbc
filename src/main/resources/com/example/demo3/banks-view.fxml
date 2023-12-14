@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo3.BanksController">
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="260.0" style="-fx-background-color: #123456;">
+            <children>
+                <Label layoutX="23.0" layoutY="768.0" text="Copyright (c). All Right Reserved" textFill="#fcfcfc" />
+                <Label layoutX="20.0" layoutY="8.0" text="AI BOT of SEO" textFill="WHITE">
+                    <font>
+                        <Font size="31.0" />
+                    </font>
+                </Label>
+                <Button layoutX="20.0" layoutY="59.0" mnemonicParsing="false" fx:id="CreditCardButton" onAction="#CreditCardButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFFFFF;" text="Credit Cards" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="94.0" mnemonicParsing="false" fx:id="BanksButton" onAction="#BanksButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Banks" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="129.0" mnemonicParsing="false" onAction="#SchemesButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Schemes" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="164.0" mnemonicParsing="false" onAction="#ChannelsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Channels" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="199.0" mnemonicParsing="false" onAction="#CompaniesButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Companies" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="234.0" mnemonicParsing="false" onAction="#SettingButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Settings" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="268.0" mnemonicParsing="false" onAction="#StatisticsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Statistics" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="303.0" mnemonicParsing="false" onAction="#SettingButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Settings" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="338.0" mnemonicParsing="false" onAction="#InfoButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Info" textFill="#123456" />
+                <Button layoutX="20.0" layoutY="727.0" mnemonicParsing="false" fx:id="ExitButton" onAction="#ExitButton" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: #FFF;" text="Exit" textFill="#123456" />
+                <ImageView fitHeight="192.0" fitWidth="205.0" layoutX="31.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('file:/home/alexander/IdeaProjects/demo3/src/main/resources/images/bot1.png');" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="260.0" prefHeight="800.0" prefWidth="840.0">
+            <children>
+                <Label fx:id="loginLabel" layoutX="736.0" layoutY="15.0" text="UserLogin">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="243.0" prefHeight="99.0" prefWidth="772.0" text="Banks" />
+
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
