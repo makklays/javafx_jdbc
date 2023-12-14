@@ -9,5 +9,6 @@ module com.example.demo3 {
     requires org.kordamp.bootstrapfx.core;
 
     opens com.example.demo3 to javafx.fxml;
+    //opens sample.Datamodel;
     exports com.example.demo3;
 }

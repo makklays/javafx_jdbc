@@ -1,22 +1,21 @@
 package com.example.demo3;
 
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.ResourceBundle;
 
-public class CreditCardController {
+public class CreditCardController implements Initializable {
     @FXML
     private TableColumn<CreditCard, Integer> Column1;
     @FXML
@@ -42,6 +41,57 @@ public class CreditCardController {
     @FXML
     private Button ExitButton;
 
+    ObservableList<CreditCard> initialData() throws SQLException {
+        // opening database connection to MySQL server
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb","admin","admin");
+
+        String sql = "SELECT * FROM my_credit_cards ORDER BY updated_at DESC ";
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        ObservableList<CreditCard> list = FXCollections.observableArrayList();
+
+        while(rs.next()) {
+            CreditCard card1 = new CreditCard(rs.getInt("account"), rs.getString("bank"), rs.getString("firstname"), rs.getString("lastname"), rs.getFloat("amount"), rs.getString("currency"), rs.getInt("fromaccount"), rs.getString("phone"));
+            System.out.println(card1.getInfo());
+
+            list.add(card1);
+        }
+
+        return list;
+
+        /*CreditCard cc1 = new CreditCard(123123,"Nation Bank","Alexander","Kuziv");
+        CreditCard cc2 = new CreditCard(124444,"Alfa Bank","Alexander","Kuziv");
+        CreditCard cc3 = new CreditCard(125555,"Privat Bank","Alexander","Kuziv");
+        return FXCollections.observableArrayList(cc1, cc2, cc3);*/
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Column1.setCellValueFactory(new PropertyValueFactory<>("Account"));
+        Column2.setCellValueFactory(new PropertyValueFactory<>("Bank"));
+        Column3.setCellValueFactory(new PropertyValueFactory<>("Firstname"));
+        Column4.setCellValueFactory(new PropertyValueFactory<>("Lastname"));
+        Column5.setCellValueFactory(new PropertyValueFactory<>("Amount"));
+        Column6.setCellValueFactory(new PropertyValueFactory<>("Currency"));
+        Column7.setCellValueFactory(new PropertyValueFactory<>("Fromaccount"));
+        Column8.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+
+        try {
+            CreditCardTable.setItems(initialData());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void SearchButton(ActionEvent event) {
+        CreditCard card = new CreditCard(12311111,"Nation Bank11","Alexander11","Kuziv11", 100F, "USD", 1111, "+380988705397");
+        System.out.println(card.getInfo());
+        boolean b = CreditCardTable.getItems().add(card);
+        System.out.println("==> " + b);
+    }
+
     @FXML
     public void CreditCardButton(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("credit-card-view.fxml"));
@@ -49,7 +99,7 @@ public class CreditCardController {
         Stage primaryStage = (Stage) CreditCardButton.getScene().getWindow();
         primaryStage.setScene(scene1);
 
-        //CreditCardTable.setEditable(false);
+        /*CreditCardTable.setEditable(true);
 
         // opening database connection to MySQL server
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb","admin","admin");
@@ -58,19 +108,23 @@ public class CreditCardController {
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
 
-        ObservableList<CreditCard> list = FXCollections.observableArrayList(new CreditCard("National Bank", "Alexander", "Kuziv"), new CreditCard("Private Bank", "Alexander", "Kuziv"));
+        //ObservableList<CreditCard> list = FXCollections.observableArrayList(new CreditCard("National Bank", "Alexander", "Kuziv"), new CreditCard("Private Bank", "Alexander", "Kuziv"));
         //CreditCardTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         //CreditCardTable.getSelectionModel().setCellSelectionEnabled(true);
 
-        //Column1.setCellValueFactory(new PropertyValueFactory<>("account"));
-        Column2.setCellValueFactory(new PropertyValueFactory<>("bank"));
-        Column3.setCellValueFactory(new PropertyValueFactory<>("firstname"));
-        Column4.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        Column1.setCellValueFactory(new PropertyValueFactory<CreditCard, Integer>("Account"));
+        Column2.setCellValueFactory(new PropertyValueFactory<CreditCard, String>("Bank"));
+        Column3.setCellValueFactory(new PropertyValueFactory<CreditCard, String>("Firstname"));
+        Column4.setCellValueFactory(new PropertyValueFactory<CreditCard, String>("Lastname"));
         //Column5.setCellValueFactory(new PropertyValueFactory<>("amount"));
         //Column6.setCellValueFactory(new PropertyValueFactory<>("currency"));
         //Column7.setCellValueFactory(new PropertyValueFactory<>("from_account"));
         //Column8.setCellValueFactory(new PropertyValueFactory<>("phone"));
 
+        //CreditCardTable.getColumns().add(Column1);
+        //CreditCardTable.getColumns().add(Column2);
+        //CreditCardTable.getColumns().add(Column3);
+        //CreditCardTable.getColumns().add(Column4);
         //CreditCardTable.getColumns().addAll(Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8);
 
         //List<CreditCards> list = new ArrayList<>();
@@ -83,18 +137,30 @@ public class CreditCardController {
             //list.add(new CreditCard(rs.getInt("account"), rs.getString("bank"), rs.getString("firstname"),rs.getString("lastname"), rs.getFloat("amount"), rs.getString("currency"),rs.getInt("from_account"), rs.getString("phone")));
         }*/
 
-        System.out.println(list.toString());
+        //System.out.println(list.toString());
+        //CreditCardTable.setItems(list);
 
-        CreditCardTable.setItems(list);
+        //CreditCardTable.getColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        if (CreditCardTable.getColumns().isEmpty()) {
+        /*CreditCardTable.getItems().add(new CreditCard(123123, "Nation Bank", "Alexander", "Kuziv"));
+        CreditCardTable.getItems().add(new CreditCard(546456, "Private Bank", "Alexander", "Kuziv"));
+        CreditCard c3 = new CreditCard(685434, "Alfa Bank", "Alexander", "Kuziv");
+        CreditCardTable.getItems().add(c3);
+
+        System.out.println(c3.getInfo());*/
+
+        /*if (CreditCardTable.getColumns().isEmpty()) {
             System.out.println("Table is empty");
         } else {
             System.out.println("Table is not empty");
-        }
+        }*/
+
+        //scene1.setCenter(CreditCardTable);
 
         //ObservableList<> creditCards =
         //CreditCardTable.setItems();
+
+        //primaryStage.show();
     }
 
     @FXML
@@ -129,7 +195,7 @@ public class CreditCardController {
     }
     //
 
-    public static class CreditCard {
+    /*public static class CreditCard {
         private SimpleIntegerProperty account;
         private final SimpleStringProperty bank;
         private final SimpleStringProperty firstname;
@@ -233,7 +299,7 @@ public class CreditCardController {
         public void setCreditCard(Integer ccard) {
             credit_card.set(ccard);
         }
-    }
+    }*/
 }
 
 /******************************
