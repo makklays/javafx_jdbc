@@ -40,6 +40,8 @@ public class CreditCardController implements Initializable {
     private Button BanksButton;
     @FXML
     private Button ExitButton;
+    @FXML
+    private TextField searchText;
 
     ObservableList<CreditCard> initialData() throws SQLException {
         // opening database connection to MySQL server
@@ -85,11 +87,33 @@ public class CreditCardController implements Initializable {
     }
 
     @FXML
-    public void SearchButton(ActionEvent event) {
-        CreditCard card = new CreditCard(12311111,"Nation Bank11","Alexander11","Kuziv11", 100F, "USD", 1111, "+380988705397");
-        System.out.println(card.getInfo());
-        boolean b = CreditCardTable.getItems().add(card);
-        System.out.println("==> " + b);
+    public void SearchButton(ActionEvent event) throws SQLException {
+        //CreditCard card = new CreditCard(12311111,"Nation Bank11","Alexander11","Kuziv11", 100F, "USD", 1111, "+380988705397");
+        //System.out.println(card.getInfo());
+        //boolean b = CreditCardTable.getItems().add(card);
+        //System.out.println("==> " + b);
+
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb","admin","admin");
+        String serachtxt = searchText.getText();
+        if (!serachtxt.isEmpty()) {
+            String sql = "SELECT * FROM my_credit_cards WHERE account LIKE ? OR amount >= ? ORDER BY amount ASC ";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, "%"+serachtxt+"%");
+            stmt.setString(2, serachtxt);
+            //System.out.println(stmt.getQueryTimeout()); // get query - sql
+            ResultSet rs = stmt.executeQuery();
+
+            ObservableList<CreditCard> list = FXCollections.observableArrayList();
+
+            while(rs.next()) {
+                System.out.println("Search: "+ serachtxt + " ==> " +rs.getInt("account")+ " " + rs.getFloat("amount"));
+
+                CreditCard card1 = new CreditCard(rs.getInt("account"), rs.getString("bank"), rs.getString("firstname"), rs.getString("lastname"), rs.getFloat("amount"), rs.getString("currency"), rs.getInt("fromaccount"), rs.getString("phone"));
+                list.add(card1);
+            }
+
+            CreditCardTable.setItems(list);
+        }
     }
 
     @FXML

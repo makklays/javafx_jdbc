@@ -48,7 +48,7 @@
               </columns>
             </TableView>
             <Button layoutX="748.0" layoutY="41.0" mnemonicParsing="false" onAction="#SearchButton" text="Search" />
-            <TextField layoutX="521.0" layoutY="41.0" prefHeight="24.0" prefWidth="219.0" />
+            <TextField fx:id="searchText" layoutX="521.0" layoutY="41.0" prefHeight="24.0" prefWidth="219.0" />
 
             </children>
         </AnchorPane>
