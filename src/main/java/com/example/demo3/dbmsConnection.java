@@ -13,19 +13,22 @@ public final class dbmsConnection {
 
     private static dbmsConnection INSTANCE;
 
-    /*public dbmsConnection() {
+    private dbmsConnection() {
         this.url = "jdbc:mysql://89.184.93.8:3306/javafx_aibot";
         this.username = "u_javafx_aib";
         this.password = "Ul1SwXimEQ9W";
-    }*/
-    private dbmsConnection() {
+
+        String info = "Initial info class";
+        System.out.println(info);
+    }
+    /*private dbmsConnection() {
         this.url = "jdbc:mysql://localhost:3306/makklaysdb";
         this.username = "admin";
         this.password = "admin";
 
         String info = "Initial info class";
         System.out.println(info);
-    }
+    }*/
 
     private dbmsConnection(String url, String username, String password) {
         this.url = url;

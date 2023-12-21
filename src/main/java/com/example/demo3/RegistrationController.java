@@ -75,7 +75,7 @@ public class RegistrationController {
                 dbmsConnection dbmsconnection = dbmsConnection.getInstance();
                 Connection con = dbmsconnection.getConnection();
 
-                String sql = "SELECT * FROM my_users WHERE login=? ";
+                String sql = "SELECT * FROM users WHERE login=? ";
                 PreparedStatement stmt = con.prepareStatement(sql);
                 stmt.setString(1, LoginText.getText());
 
@@ -93,7 +93,7 @@ public class RegistrationController {
 
                     System.out.println("DATA: "+LoginText.getText()+" "+PasswordText.getText()+" "+FirstnameText.getText()+" "+LastnameText.getText()+" "+gender+" "+PhoneText.getText()+" "+EmailText.getText()+" "+CreditCardText.getText());
 
-                    String sql1 = "INSERT INTO my_users (login, password, firstname, lastname, gender, phone, email, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
+                    String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
                     PreparedStatement stmt1 = con.prepareStatement(sql1);
                     stmt1.setString(1, LoginText.getText());
                     stmt1.setString(2, PasswordText.getText());

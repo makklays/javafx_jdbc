@@ -114,9 +114,9 @@ public class CreditCard {
  `lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `amount` float(25) NOT NULL,
  `currency` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `from_account` int(25) NOT NULL,
+ `fromaccount` int(25) NOT NULL,
  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `credit_card` varchar(25) DEFAULT NULL,
+ `credit_card` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`),
@@ -125,7 +125,7 @@ public class CreditCard {
  KEY `firstname` (`firstname`),
  KEY `lastname` (`lastname`),
  KEY `currency` (`currency`),
- KEY `from_account` (`from_account`),
+ KEY `fromaccount` (`fromaccount`),
  KEY `credit_card` (`credit_card`),
  KEY `phone` (`phone`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin

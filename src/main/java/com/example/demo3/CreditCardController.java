@@ -56,7 +56,7 @@ public class CreditCardController implements Initializable {
         dbmsConnection dbmsconnection = dbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
-        String sql = "SELECT * FROM my_credit_cards ORDER BY updated_at DESC ";
+        String sql = "SELECT * FROM credit_cards ORDER BY updated_at DESC ";
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
 
@@ -109,7 +109,7 @@ public class CreditCardController implements Initializable {
 
         String serachtxt = searchText.getText();
         if (!serachtxt.isEmpty()) {
-            String sql = "SELECT * FROM my_credit_cards WHERE account LIKE ? OR amount >= ? ORDER BY amount ASC ";
+            String sql = "SELECT * FROM credit_cards WHERE account LIKE ? OR amount >= ? ORDER BY amount ASC ";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, "%"+serachtxt+"%");
             stmt.setString(2, serachtxt);

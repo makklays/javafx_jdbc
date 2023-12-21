@@ -67,7 +67,7 @@ public class LoginController {
             dbmsConnection dbmsconnection = dbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 
-            String sql = "SELECT * FROM my_users WHERE login=? AND password=? ";
+            String sql = "SELECT * FROM users WHERE login=? AND password=? ";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, Login.getText());
             stmt.setString(2, Password.getText());
