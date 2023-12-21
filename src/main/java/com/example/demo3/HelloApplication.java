@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -144,7 +143,7 @@ public class HelloApplication extends Application {
         password.setId("password_id");
         tf2.setAlignment(Pos.CENTER);
 
-        InputStream iconStream = getClass().getResourceAsStream("/images/Cyberpolice.png");
+        InputStream iconStream = getClass().getResourceAsStream("/images/Cyberpolice.png"); // Cyberpolice.png
         //FileInputStream input = new FileInputStream("src/images/Cyberpolice.png"); // buks.png
         Image image = new Image(iconStream);
         ImageView img = new ImageView(image);
