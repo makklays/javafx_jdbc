@@ -1,21 +1,36 @@
 package com.example.demo3;
 
 public class Channel {
+    private Integer id;
     private String title;
     private String description;
 
-    public void Channel() {
+    public Channel(Integer id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public Channel() {
         this.title = "";
         this.description = "";
     }
 
-    public void Channel(String title) {
+    public Channel(String title) {
         this.title = title;
     }
 
-    public void Channel(String title, String description) {
+    public Channel(String title, String description) {
         this.title = title;
         this.description = description;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
