@@ -19,76 +19,60 @@ public class LayoutController {
     @FXML
     private Button CreditCardButton;
     @FXML
-    private Button BanksButton;
+    private Button StatisticsButton;
+    @FXML
+    private Button InfoButton;
+    @FXML
+    private Button ChannelButton;
+    @FXML
+    private Button CompaniesButton;
     @FXML
     private Button ExitButton;
 
     @FXML
-    protected void onCreditCardButtonClick() throws IOException {
+    protected void onCreditCardButtonClick() throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("credit-card-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) CreditCardButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
+
     @FXML
-    protected void onBanksButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("banks-view.fxml"));
+    protected void onChannelsButtonClick()  throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) BanksButton.getScene().getWindow();
+        Stage primaryStage = (Stage) ChannelButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 
     @FXML
-    protected void onSchemesButtonClick() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("banks-view.fxml"));
+    protected void onCompaniesButtonClick() throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("company-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) BanksButton.getScene().getWindow();
-        primaryStage.setScene(scene1);*/
+        Stage primaryStage = (Stage) CompaniesButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
     }
 
     @FXML
-    protected void onChannelsButtonClick() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("banks-view.fxml"));
+    protected void onStatisticsButtonClick() throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("statistics-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) BanksButton.getScene().getWindow();
-        primaryStage.setScene(scene1);*/
+        Stage primaryStage = (Stage) StatisticsButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
     }
 
     @FXML
-    protected void onCompaniesButtonClick() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("banks-view.fxml"));
+    protected void onInfoButtonClick() throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("info-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) BanksButton.getScene().getWindow();
-        primaryStage.setScene(scene1);*/
+        Stage primaryStage = (Stage) InfoButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
     }
 
     @FXML
-    protected void onSettingButtonClick() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("banks-view.fxml"));
-        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) BanksButton.getScene().getWindow();
-        primaryStage.setScene(scene1);*/
-    }
-
-    @FXML
-    protected void onStatisticsButtonClick() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("banks-view.fxml"));
-        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) BanksButton.getScene().getWindow();
-        primaryStage.setScene(scene1);*/
-    }
-
-    @FXML
-    protected void onInfoButtonClick() throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("banks-view.fxml"));
-        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) BanksButton.getScene().getWindow();
-        primaryStage.setScene(scene1);*/
-    }
-
-    @FXML
-    protected void onExitButtonClick() throws IOException {
+    protected void onExitButtonClick() throws IOException, SQLException {
         Stage primaryStage = (Stage) ExitButton.getScene().getWindow();
         primaryStage.close();
     }
 }
+

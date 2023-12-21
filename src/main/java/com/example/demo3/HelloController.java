@@ -3,6 +3,7 @@ package com.example.demo3;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class HelloController {
@@ -10,7 +11,7 @@ public class HelloController {
     private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
+    protected void onHelloButtonClick() throws IOException, SQLException {
 
         try {
             /*try {
@@ -20,7 +21,7 @@ public class HelloController {
 	        }*/
 
             // opening database connection to MySQL server
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb","admin","admin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
 
             // getting Statement object to execute query
             Statement stmt = con.createStatement();
