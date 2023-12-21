@@ -49,9 +49,12 @@ public class CreditCardController implements Initializable {
     @FXML
     private TextField searchText;
 
-    ObservableList<CreditCard> initialData() throws SQLException {
+    ObservableList<CreditCard> initialData() throws SQLException, ClassNotFoundException {
         // opening database connection to MySQL server
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+        //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+        // or
+        dbmsConnection dbmsconnection = new dbmsConnection();
+        Connection con = dbmsconnection.getConnection();
 
         String sql = "SELECT * FROM my_credit_cards ORDER BY updated_at DESC ";
         Statement stmt = con.createStatement();
@@ -87,19 +90,23 @@ public class CreditCardController implements Initializable {
 
         try {
             CreditCardTable.setItems(initialData());
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
     @FXML
-    public void SearchButton(ActionEvent event) throws SQLException {
+    public void SearchButton(ActionEvent event) throws SQLException, ClassNotFoundException {
         //CreditCard card = new CreditCard(12311111,"Nation Bank11","Alexander11","Kuziv11", 100F, "USD", 1111, "+380988705397");
         //System.out.println(card.getInfo());
         //boolean b = CreditCardTable.getItems().add(card);
         //System.out.println("==> " + b);
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+        //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+        // or
+        dbmsConnection dbmsconnection = new dbmsConnection();
+        Connection con = dbmsconnection.getConnection();
+
         String serachtxt = searchText.getText();
         if (!serachtxt.isEmpty()) {
             String sql = "SELECT * FROM my_credit_cards WHERE account LIKE ? OR amount >= ? ORDER BY amount ASC ";

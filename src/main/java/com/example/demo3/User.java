@@ -64,7 +64,10 @@ public class User
     public boolean insertUser()
     {
         try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+            // or
+            dbmsConnection dbmsconnection = new dbmsConnection();
+            Connection con = dbmsconnection.getConnection();
 
             String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?) ";
             PreparedStatement stmt1 = con.prepareStatement(sql1);
@@ -83,12 +86,6 @@ public class User
                 System.out.println("Can't insert a new user in the database");
             }
 
-            //dbmsConnection dbmsconnection = new dbmsConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
-            //Connection connection = dbmsconnection.getConnection();
-            //Statement stmt = con.createStatement();
-            //Properties connectionProps = new Properties();
-            //connectionProps.put("user", "admin");
-            //connectionProps.put("password", "admin");
             System.out.println("Loading driver...");
 
 		    return true;

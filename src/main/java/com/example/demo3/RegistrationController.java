@@ -70,7 +70,10 @@ public class RegistrationController {
                 }
 
                 // opening database connection to MySQL server
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+                //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
+                // or
+                dbmsConnection dbmsconnection = new dbmsConnection();
+                Connection con = dbmsconnection.getConnection();
 
                 String sql = "SELECT * FROM my_users WHERE login=? ";
                 PreparedStatement stmt = con.prepareStatement(sql);
@@ -130,6 +133,8 @@ public class RegistrationController {
         }
         catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
