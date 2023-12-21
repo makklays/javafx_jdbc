@@ -63,7 +63,8 @@ public class LoginController {
             //Connection con = DriverManager.getConnection("jdbc:mysql://vs3092.mirohost.net:3306/javafx_aibot", "u_javafx_aib", "Ul1SwXimEQ9W");
             //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
             // or
-            dbmsConnection dbmsconnection = new dbmsConnection();
+            //ClassSingleton classSingleton1 = ClassSingleton.getInstance();
+            dbmsConnection dbmsconnection = dbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 
             String sql = "SELECT * FROM my_users WHERE login=? AND password=? ";

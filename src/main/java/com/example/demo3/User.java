@@ -66,7 +66,7 @@ public class User
         try {
             //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
             // or
-            dbmsConnection dbmsconnection = new dbmsConnection();
+            dbmsConnection dbmsconnection = dbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 
             String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?) ";

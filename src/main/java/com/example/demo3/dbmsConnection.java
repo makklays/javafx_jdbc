@@ -5,43 +5,56 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class dbmsConnection {
+public final class dbmsConnection {
     // JDBC URL, username and password of MySQL server
-    String url;
-    String username;
-    String password;
+    private final String url;
+    private final String username;
+    private final String password;
 
-    // JDBC variables for opening and managing connection
-    Connection conn;
-    Statement stmt;
+    private static dbmsConnection INSTANCE;
 
     /*public dbmsConnection() {
         this.url = "jdbc:mysql://89.184.93.8:3306/javafx_aibot";
         this.username = "u_javafx_aib";
         this.password = "Ul1SwXimEQ9W";
     }*/
-    public dbmsConnection() {
+    private dbmsConnection() {
         this.url = "jdbc:mysql://localhost:3306/makklaysdb";
         this.username = "admin";
         this.password = "admin";
+
+        String info = "Initial info class";
+        System.out.println(info);
     }
 
-    public dbmsConnection(String url, String username, String password) {
+    private dbmsConnection(String url, String username, String password) {
         this.url = url;
         this.username = username;
         this.password = password;
+
+        String info = "Initial info class";
+        System.out.println(info);
+    }
+
+    public static dbmsConnection getInstance() {
+        if(INSTANCE == null) {
+            INSTANCE = new dbmsConnection();
+        }
+
+        return INSTANCE;
     }
 
     public Connection getConnection() throws SQLException, ClassNotFoundException {
         // opening database connection to MySQL server
-        conn = DriverManager.getConnection(url, username, password);
+        // JDBC variables for opening and managing connection
+        Connection conn = DriverManager.getConnection(this.url, this.username, this.password);
         //conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/makklaysdb", "admin", "admin");
         //conn = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
 
         //Connection con = null;
         //Class.forName("com.mysql.cj.jdbc.Driver").instnewInstance();
         // getting Statement object to execute query
-        stmt = conn.createStatement();
+        Statement stmt = conn.createStatement();
 
         System.out.println("Connection successfully");
 
