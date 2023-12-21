@@ -39,7 +39,7 @@ public class RegistrationController {
     private Button LoginButton;
 
     @FXML
-    protected void onLoginButtonClick() throws IOException {
+    protected void onLoginButtonClick() throws IOException, SQLException {
         //AnchorPane apane = new AnchorPane();
         //apane.getChildren().add(new Label("My Text !"));
         //Registration.getScene().setRoot(apane);
@@ -56,7 +56,8 @@ public class RegistrationController {
         //primaryStage.getScene().setRoot(LoginController.registrationScene());
     }
 
-    public void onRegistrationButtonClick(ActionEvent actionEvent) {
+    @FXML
+    public void onRegistrationButtonClick(ActionEvent actionEvent) throws IOException, SQLException {
         try {
             boolean connect = validate_form();
             if (connect) {
@@ -69,7 +70,7 @@ public class RegistrationController {
                 }
 
                 // opening database connection to MySQL server
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb","admin","admin");
+                Connection con = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
 
                 String sql = "SELECT * FROM my_users WHERE login=? ";
                 PreparedStatement stmt = con.prepareStatement(sql);
@@ -178,3 +179,4 @@ public class RegistrationController {
         return proceed;
     }
 }
+

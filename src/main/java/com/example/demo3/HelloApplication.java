@@ -1,9 +1,10 @@
 package com.example.demo3;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 
@@ -433,7 +434,7 @@ class RegistrationForm
 }
 
 /******************************
- CREATE TABLE `my_users` (
+ CREATE TABLE `users` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
  `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
  `firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -593,26 +594,18 @@ class dbmsConnection
     }
 
     public Connection getConnection() throws SQLException, ClassNotFoundException {
-        //try {
         // opening database connection to MySQL server
         //conn = DriverManager.getConnection(url, username, password);
         conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/makklaysdb", "admin", "admin");
 
         //Connection con = null;
         //Class.forName("com.mysql.cj.jdbc.Driver").instnewInstance();
-
         // getting Statement object to execute query
         stmt = conn.createStatement();
 
         System.out.println("Connection Established Successfully");
 
-		/*} catch (SQLException sqlEx) {
-            //sqlEx.printStackTrace();
-			sqlEx.getMessage();
-			sqlEx.getErrorCode();
-		}*/
-
-        return conn;
+		return conn;
     }
 
     public void closeConnection(Connection con, Statement stmt) throws SQLException {

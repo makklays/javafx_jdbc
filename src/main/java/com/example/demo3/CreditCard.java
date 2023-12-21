@@ -104,3 +104,30 @@ public class CreditCard {
         this.phone = pho;
     }
 }
+
+/******************************
+ CREATE TABLE `credit_cards` (
+ `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `account` int(25) NOT NULL,
+ `bank` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+ `firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+ `lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+ `amount` float(25) NOT NULL,
+ `currency` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+ `from_account` int(25) NOT NULL,
+ `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+ `credit_card` varchar(25) DEFAULT NULL,
+ `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`id`),
+ KEY `account` (`account`),
+ KEY `bank` (`bank`),
+ KEY `firstname` (`firstname`),
+ KEY `lastname` (`lastname`),
+ KEY `currency` (`currency`),
+ KEY `from_account` (`from_account`),
+ KEY `credit_card` (`credit_card`),
+ KEY `phone` (`phone`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+ *******************************/
+

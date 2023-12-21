@@ -32,7 +32,7 @@ public class LoginController {
     private Button LoginButton;
 
     @FXML
-    protected void onRegistrationButtonClick() throws IOException {
+    protected void onRegistrationButtonClick() throws IOException, SQLException {
         alertText.setTextFill(Color.RED);
         alertText.setText("Need registration");
 
@@ -53,13 +53,13 @@ public class LoginController {
     }
 
     @FXML
-    protected void onEnterButtonClick() {
+    protected void onEnterButtonClick() throws IOException, SQLException {
         try {
             alertText.setTextFill(Color.BLACK);
             alertText.setText(Login.getText() + " " + Password.getText());
 
             // opening database connection to MySQL server
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb","admin","admin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
 
             String sql = "SELECT * FROM my_users WHERE login=? AND password=? ";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -95,3 +95,4 @@ public class LoginController {
         }
     }
 }
+
