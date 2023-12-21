@@ -51,7 +51,7 @@ public class CreditCardController implements Initializable {
 
     ObservableList<CreditCard> initialData() throws SQLException {
         // opening database connection to MySQL server
-        Connection con = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
 
         String sql = "SELECT * FROM my_credit_cards ORDER BY updated_at DESC ";
         Statement stmt = con.createStatement();
@@ -99,7 +99,7 @@ public class CreditCardController implements Initializable {
         //boolean b = CreditCardTable.getItems().add(card);
         //System.out.println("==> " + b);
 
-        Connection con = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
         String serachtxt = searchText.getText();
         if (!serachtxt.isEmpty()) {
             String sql = "SELECT * FROM my_credit_cards WHERE account LIKE ? OR amount >= ? ORDER BY amount ASC ";

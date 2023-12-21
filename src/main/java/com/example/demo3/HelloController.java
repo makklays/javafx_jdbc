@@ -21,7 +21,7 @@ public class HelloController {
 	        }*/
 
             // opening database connection to MySQL server
-            Connection con = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
 
             // getting Statement object to execute query
             Statement stmt = con.createStatement();

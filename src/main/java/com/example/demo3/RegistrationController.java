@@ -70,7 +70,7 @@ public class RegistrationController {
                 }
 
                 // opening database connection to MySQL server
-                Connection con = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
 
                 String sql = "SELECT * FROM my_users WHERE login=? ";
                 PreparedStatement stmt = con.prepareStatement(sql);
@@ -115,7 +115,7 @@ public class RegistrationController {
                     }
 
                     // or
-                    //String sql1 = "INSERT INTO my_users (login, password, firstname, lastname, gender, phone, email, code) VALUES ('makklays5', 'password', 'Alexander', 'Kuziv', 'man', '+380988705397', 'makklays@gmail.com', '1111222233334444')";
+                    //String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email, code) VALUES ('makklays5', 'password', 'Alexander', 'Kuziv', 'man', '+380988705397', 'makklays@gmail.com', '1111222233334444')";
                     //Statement stmt1 = con.createStatement();
                     //ResultSet rs1 = stmt1.executeQuery();
                 }

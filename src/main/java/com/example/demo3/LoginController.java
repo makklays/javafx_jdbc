@@ -59,7 +59,9 @@ public class LoginController {
             alertText.setText(Login.getText() + " " + Password.getText());
 
             // opening database connection to MySQL server
-            Connection con = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
+            //Connection con = DriverManager.getConnection("jdbc:mariadb://89.184.93.8:3306/javafx_aibot?user=u_javafx_aib&password=Ul1SwXimEQ9W");
+            //Connection con = DriverManager.getConnection("jdbc:mysql://vs3092.mirohost.net:3306/javafx_aibot", "u_javafx_aib", "Ul1SwXimEQ9W");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
 
             String sql = "SELECT * FROM my_users WHERE login=? AND password=? ";
             PreparedStatement stmt = con.prepareStatement(sql);
