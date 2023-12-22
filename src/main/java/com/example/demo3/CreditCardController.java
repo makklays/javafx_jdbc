@@ -1,5 +1,6 @@
 package com.example.demo3;
 
+import com.example.demo3.model.CreditCard;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

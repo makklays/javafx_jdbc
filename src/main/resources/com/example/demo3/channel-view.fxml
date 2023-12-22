@@ -15,8 +15,8 @@
                         <Font size="31.0" />
                     </font>
                 </Label>
-                <Button fx:id="creditCardButton" layoutX="20.0" layoutY="59.0" mnemonicParsing="false" onAction="#CreditCardButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFFFFF;" text="Credit Cards" textFill="#123456" />
-                <Button fx:id="channelsButton" layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChannelsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Channels" textFill="#123456" />
+                <Button fx:id="CreditCardButton" layoutX="20.0" layoutY="59.0" mnemonicParsing="false" onAction="#CreditCardButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFFFFF;" text="Credit Cards" textFill="#123456" />
+                <Button fx:id="ChannelsButton" layoutX="20.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChannelsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Channels" textFill="#123456" />
                 <Button fx:id="CompaniesButton" layoutX="20.0" layoutY="127.0" mnemonicParsing="false" onAction="#CompaniesButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Companies" textFill="#123456" />
                 <Button fx:id="StatisticsButton" layoutX="20.0" layoutY="161.0" mnemonicParsing="false" onAction="#StatisticsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Statistics" textFill="#123456" />
                 <Button fx:id="InfoButton" layoutX="20.0" layoutY="195.0" mnemonicParsing="false" onAction="#InfoButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Info" textFill="#123456" />
@@ -32,17 +32,18 @@
                     </font>
                 </Label>
                 <Label layoutX="26.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="List of Channels" />
-                <Button fx:id="addChannelButton" layoutX="711.0" layoutY="28.0" mnemonicParsing="false" onAction="#onAddChannelButton" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Add channel" />
-            <TableView fx:id="ChannelsTable" layoutX="12.0" layoutY="80.0" prefHeight="664.0" prefWidth="816.0">
-              <columns>
-                <TableColumn fx:id="Column1" prefWidth="66.0" text="ID" />
-                <TableColumn fx:id="Column2" minWidth="0.0" prefWidth="349.0" text="Title" />
-                  <TableColumn fx:id="Column3" prefWidth="373.0" text="Description" />
-              </columns>
-            </TableView>
+                <Button fx:id="AddChannelButton" layoutX="711.0" layoutY="28.0" mnemonicParsing="false" onAction="#onAddChannelButton" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Add channel" />
+                <TableView fx:id="ChannelsTable" layoutX="12.0" layoutY="80.0" prefHeight="664.0" prefWidth="816.0">
+                    <columns>
+                        <TableColumn fx:id="Column1" prefWidth="66.0" text="ID" />
+                        <TableColumn fx:id="Column2" minWidth="0.0" prefWidth="349.0" text="Title" />
+                        <TableColumn fx:id="Column3" prefWidth="373.0" text="Description" />
+                    </columns>
+                </TableView>
 
 
             </children>
         </AnchorPane>
     </children>
 </AnchorPane>
+

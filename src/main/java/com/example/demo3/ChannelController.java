@@ -1,5 +1,6 @@
 package com.example.demo3;
 
+import com.example.demo3.model.Channel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,9 +19,9 @@ import java.util.ResourceBundle;
 
 public class ChannelController implements Initializable {
     @FXML
-    private Button creditCardButton;
+    private Button CreditCardButton;
     @FXML
-    private Button channelsButton;
+    private Button ChannelsButton;
     @FXML
     private Button CompaniesButton;
     @FXML
@@ -28,19 +29,19 @@ public class ChannelController implements Initializable {
     @FXML
     private Button InfoButton;
     @FXML
-    private Button addChannelButton;
+    private Button AddChannelButton;
     @FXML
-    private Button listChannelsButton;
+    private Button ListChannelsButton;
     @FXML
-    private Button addAddChannelButton;
+    private Button AddAddChannelButton;
     @FXML
-    private Button cancelAddChannelButton;
+    private Button CancelAddChannelButton;
     @FXML
     private TextField TitleText;
     @FXML
     private TextArea DescrArea;
     @FXML
-    private Label alertText;
+    private Label AlertText;
 
     @FXML
     private TableColumn<Channel, Integer> Column1;
@@ -104,13 +105,13 @@ public class ChannelController implements Initializable {
 
             int i = stmt1.executeUpdate();
             if (i > 0) {
-                alertText.setTextFill(Color.GREEN);
-                alertText.setText("You inserted successfully");
+                AlertText.setTextFill(Color.GREEN);
+                AlertText.setText("You inserted successfully");
 
                 System.out.println("You inserted successfully");
             } else {
-                alertText.setTextFill(Color.RED);
-                alertText.setText("Can't insert channel in the database");
+                AlertText.setTextFill(Color.RED);
+                AlertText.setText("Can't insert channel in the database");
 
                 System.out.println("Can't insert channel in the database");
             }
@@ -121,21 +122,21 @@ public class ChannelController implements Initializable {
             // redirect to list of channels
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
             Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-            Stage primaryStage = (Stage) addAddChannelButton.getScene().getWindow();
+            Stage primaryStage = (Stage) AddAddChannelButton.getScene().getWindow();
             primaryStage.setScene(scene1);
         } else {
-            alertText.setTextFill(Color.RED);
+            AlertText.setTextFill(Color.RED);
         }
     }
 
     public boolean validate_form() {
         boolean proceed = true;
         if (TitleText.getText().isEmpty() && proceed == true) {
-            alertText.setText("Enter Title");
+            AlertText.setText("Enter Title");
             proceed = false;
         }
         if (DescrArea.getText().isEmpty() && proceed == true) {
-            alertText.setText("Enter description");
+            AlertText.setText("Enter description");
             proceed = false;
         }
 
@@ -147,7 +148,7 @@ public class ChannelController implements Initializable {
         // redirect to list of channels
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) cancelAddChannelButton.getScene().getWindow();
+        Stage primaryStage = (Stage) CancelAddChannelButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 
@@ -155,7 +156,7 @@ public class ChannelController implements Initializable {
     public void onAddChannelButton(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("add-channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) addChannelButton.getScene().getWindow();
+        Stage primaryStage = (Stage) AddChannelButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 
@@ -163,7 +164,7 @@ public class ChannelController implements Initializable {
     public void onListChannelsButton(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) listChannelsButton.getScene().getWindow();
+        Stage primaryStage = (Stage) ListChannelsButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 
@@ -171,7 +172,7 @@ public class ChannelController implements Initializable {
     public void CreditCardButton(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("credit-card-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) creditCardButton.getScene().getWindow();
+        Stage primaryStage = (Stage) CreditCardButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 
@@ -181,7 +182,7 @@ public class ChannelController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) channelsButton.getScene().getWindow();
+        Stage primaryStage = (Stage) ChannelsButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 

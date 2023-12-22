@@ -1,6 +1,7 @@
-package com.example.demo3;
+package com.example.demo3.model;
 
 public class CreditCard {
+    private Integer id;
     private Integer account;
     private String bank;
     private String firstname;
@@ -45,8 +46,12 @@ public class CreditCard {
     }
 
     public String getInfo() {
-        return this.account + " " + this.bank + " " + this.firstname + " " + this.lastname +" "+ this.amount + " " + this.currency + " ==>" + this.fromaccount + "<== " + this.phone;
+        return this.id + " " + this.account + " " + this.bank + " " + this.firstname + " " + this.lastname +" "+ this.amount + " " + this.currency + " ==>" + this.fromaccount + "<== " + this.phone;
     }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public Integer getAccount() {
         return this.account;
@@ -104,30 +109,4 @@ public class CreditCard {
         this.phone = pho;
     }
 }
-
-/******************************
- CREATE TABLE `credit_cards` (
- `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
- `account` int(25) NOT NULL,
- `bank` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
- `firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `amount` float(25) NOT NULL,
- `currency` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `fromaccount` int(25) NOT NULL,
- `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `credit_card` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
- `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
- `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
- PRIMARY KEY (`id`),
- KEY `account` (`account`),
- KEY `bank` (`bank`),
- KEY `firstname` (`firstname`),
- KEY `lastname` (`lastname`),
- KEY `currency` (`currency`),
- KEY `fromaccount` (`fromaccount`),
- KEY `credit_card` (`credit_card`),
- KEY `phone` (`phone`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
- *******************************/
 

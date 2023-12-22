@@ -14,9 +14,9 @@ public final class DbmsConnection {
     private static DbmsConnection INSTANCE;
 
     private DbmsConnection() {
-        this.url = "jdbc:mysql://89.184.93.8:3306/javafx_aibot";
-        this.username = "u_javafx_aib";
-        this.password = "Ul1SwXimEQ9W";
+        this.url = "jdbc:mysql://localhost:3306/javafx_aibot"; // "jdbc:mysql://89.184.93.8:3306/javafx_aibot";
+        this.username = "admin"; //"u_javafx_aib";
+        this.password = "admin"; //"Ul1SwXimEQ9W";
 
         String info = "Initial info class";
         System.out.println(info);
@@ -44,7 +44,7 @@ public final class DbmsConnection {
         // opening database connection to MySQL server
         // JDBC variables for opening and managing connection
         Connection conn = DriverManager.getConnection(this.url, this.username, this.password);
-        //conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/makklaysdb", "admin", "admin");
+        //Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/makklaysdb", "admin", "admin");
         //conn = DriverManager.getConnection("jdbc:mysql://89.184.93.8:3306/javafx_aibot","u_javafx_aib","Ul1SwXimEQ9W");
 
         //Connection con = null;

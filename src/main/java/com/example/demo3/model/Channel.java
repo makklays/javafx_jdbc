@@ -1,4 +1,4 @@
-package com.example.demo3;
+package com.example.demo3.model;
 
 public class Channel {
     private Integer id;
@@ -11,18 +11,18 @@ public class Channel {
         this.description = description;
     }
 
-    public Channel() {
-        this.title = "";
-        this.description = "";
+    public Channel(String title, String description) {
+        this.title = title;
+        this.description = description;
     }
 
     public Channel(String title) {
         this.title = title;
     }
 
-    public Channel(String title, String description) {
-        this.title = title;
-        this.description = description;
+    public Channel() {
+        this.title = "";
+        this.description = "";
     }
 
     public Integer getId() {
@@ -49,17 +49,4 @@ public class Channel {
         this.description = description;
     }
 }
-
-/******************************
- CREATE TABLE `channels` (
- `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
- `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
- `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
- `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
- `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
- PRIMARY KEY (`id`),
- KEY `title` (`title`),
- KEY `description` (`description`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
- *******************************/
 
