@@ -12,6 +12,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.LogManager;
+
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
@@ -29,11 +35,14 @@ public class LoginController {
     private Button registrationButton;
     @FXML
     private Button loginButton;
+    private static final Logger logger = Logger.getLogger("my logger");
 
     @FXML
     protected void onRegistrationButtonClick() throws IOException, SQLException {
         alertText.setTextFill(Color.RED);
         alertText.setText("Need registration");
+
+        logger.info("Need registration");
 
         //AnchorPane apane = new AnchorPane();
         //apane.getChildren().add(new Label("My Text !"));
@@ -57,6 +66,9 @@ public class LoginController {
             alertText.setTextFill(Color.BLACK);
             alertText.setText(login.getText() + " " + password.getText());
 
+            // log
+            logger.info("login ==> " + login.getText() + " password ==> " + password.getText());
+
             // opening database connection to MySQL server
             //Connection con = DriverManager.getConnection("jdbc:mariadb://89.184.93.8:3306/javafx_aibot?user=u_javafx_aib&password=Ul1SwXimEQ9W");
             //Connection con = DriverManager.getConnection("jdbc:mysql://vs3092.mirohost.net:3306/javafx_aibot", "u_javafx_aib", "Ul1SwXimEQ9W");
@@ -77,6 +89,12 @@ public class LoginController {
                 alertText.setText("Authorized");
                 System.out.println("User exist in the database");
 
+                // log
+                logger.info("User exist in the database");
+                if (logger.isLoggable(Level.FINE)) {
+                    logger.fine("Authorized");
+                }
+
                 // new scene 'layout-view.fxml'
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
                 Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
@@ -87,6 +105,8 @@ public class LoginController {
                 alertText.setTextFill(Color.RED);
                 alertText.setText("User didn't found");
                 System.out.println("User not exist in the database");
+
+                logger.info("User not exist in the database");
             }
 
             rs.close();
@@ -95,7 +115,11 @@ public class LoginController {
         }
         catch (SQLException e) {
             e.printStackTrace();
+            // log
+            logger.log(Level.WARNING, "SQLException :", e);
         } catch (IOException | ClassNotFoundException e) {
+            // log
+            logger.log(Level.WARNING, "IOException | ClassNotFoundException :", e);
             throw new RuntimeException(e);
         }
     }

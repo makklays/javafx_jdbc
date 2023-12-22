@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.LogManager;
 
 public class RegistrationController {
     @FXML
@@ -37,6 +40,7 @@ public class RegistrationController {
     private TextField CreditCardText;
     @FXML
     private Button LoginButton;
+    private static final Logger logger = Logger.getLogger("my logger");
 
     @FXML
     protected void onLoginButtonClick() throws IOException, SQLException {
@@ -58,6 +62,19 @@ public class RegistrationController {
 
     @FXML
     public void onRegistrationButtonClick(ActionEvent actionEvent) throws IOException, SQLException {
+
+        // init logger from properties
+        LogManager.getLogManager().readConfiguration(
+            RegistrationController.class.getResourceAsStream("/logging.properties")
+        );
+
+        // Logger slf4j
+        //Logger logger = LoggerFactory.getLogger(Solution.class);
+        logger.info("info - hello world!");
+        logger.fine("fine - hello world!");
+        logger.log(Level.WARNING, "warning - hello world!", "Trace exception e");
+        logger.log(Level.SEVERE, "warning - hello world!", "Trace exception e");
+
         try {
             boolean connect = validate_form();
             if (connect) {
@@ -81,6 +98,9 @@ public class RegistrationController {
 
                 alertText.setTextFill(Color.BLACK);
                 alertText.setText(LoginText.getText());
+
+                // add info logger
+                logger.log(Level.INFO, "search user by login", LoginText.getText());
 
                 ResultSet rs = stmt.executeQuery();
 
@@ -109,10 +129,16 @@ public class RegistrationController {
                         alertText.setTextFill(Color.GREEN);
                         alertText.setText("You was successfully registered");
 
+                        // add info logger
+                        logger.log(Level.INFO, "You was successfully registered");
+
                         System.out.println("You was successfully registered");
                     } else {
                         alertText.setTextFill(Color.RED);
                         alertText.setText("Can't insert user in the database");
+
+                        // add info logger
+                        logger.log(Level.INFO, "Can't insert user in the database");
 
                         System.out.println("Can't insert user in the database");
                     }
@@ -134,6 +160,7 @@ public class RegistrationController {
         catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            logger.log(Level.WARNING, "trouble exception", e);
             throw new RuntimeException(e);
         }
     }
