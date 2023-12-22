@@ -72,7 +72,7 @@ public class RegistrationController {
                 // opening database connection to MySQL server
                 //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
                 // or
-                dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+                DbmsConnection dbmsconnection = DbmsConnection.getInstance();
                 Connection con = dbmsconnection.getConnection();
 
                 String sql = "SELECT * FROM users WHERE login=? ";

@@ -5,15 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public final class dbmsConnection {
+public final class DbmsConnection {
     // JDBC URL, username and password of MySQL server
     private final String url;
     private final String username;
     private final String password;
 
-    private static dbmsConnection INSTANCE;
+    private static DbmsConnection INSTANCE;
 
-    private dbmsConnection() {
+    private DbmsConnection() {
         this.url = "jdbc:mysql://89.184.93.8:3306/javafx_aibot";
         this.username = "u_javafx_aib";
         this.password = "Ul1SwXimEQ9W";
@@ -21,16 +21,9 @@ public final class dbmsConnection {
         String info = "Initial info class";
         System.out.println(info);
     }
-    /*private dbmsConnection() {
-        this.url = "jdbc:mysql://localhost:3306/makklaysdb";
-        this.username = "admin";
-        this.password = "admin";
 
-        String info = "Initial info class";
-        System.out.println(info);
-    }*/
 
-    private dbmsConnection(String url, String username, String password) {
+    private DbmsConnection(String url, String username, String password) {
         this.url = url;
         this.username = username;
         this.password = password;
@@ -39,9 +32,9 @@ public final class dbmsConnection {
         System.out.println(info);
     }
 
-    public static dbmsConnection getInstance() {
+    public static DbmsConnection getInstance() {
         if(INSTANCE == null) {
-            INSTANCE = new dbmsConnection();
+            INSTANCE = new DbmsConnection();
         }
 
         return INSTANCE;

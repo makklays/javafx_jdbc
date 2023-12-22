@@ -1,9 +1,6 @@
 package com.example.demo3;
 
-import javafx.scene.paint.Color;
-
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class User
@@ -17,7 +14,7 @@ public class User
     private String phone;
     private String email;
     private String city;
-    private Integer is_auth;
+    private boolean isAuth;
     private String code;
     private String created_at;
     private String updated_at;
@@ -66,7 +63,7 @@ public class User
         try {
             //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
             // or
-            dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+            DbmsConnection dbmsconnection = DbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 
             String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?) ";
@@ -168,12 +165,12 @@ public class User
         this.city = city;
     }
 
-    public Integer getIs_auth() {
-        return is_auth;
+    public boolean getAuth() {
+        return isAuth;
     }
 
-    public void setIs_auth(Integer is_auth) {
-        this.is_auth = is_auth;
+    public void setAuth(boolean auth) {
+        this.isAuth = auth;
     }
 
     public String getCode() {
