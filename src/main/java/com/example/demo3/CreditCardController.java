@@ -53,7 +53,7 @@ public class CreditCardController implements Initializable {
         // opening database connection to MySQL server
         //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
         // or
-        dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+        DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
         String sql = "SELECT * FROM credit_cards ORDER BY updated_at DESC ";
@@ -104,7 +104,7 @@ public class CreditCardController implements Initializable {
 
         //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
         // or
-        dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+        DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
         String serachtxt = searchText.getText();

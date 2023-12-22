@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -23,13 +22,13 @@ public class LoginController {
     @FXML
     private Label alertText;
     @FXML
-    private TextField Login;
+    private TextField login;
     @FXML
-    private PasswordField Password;
+    private PasswordField password;
     @FXML
-    private Button RegistrationButton;
+    private Button registrationButton;
     @FXML
-    private Button LoginButton;
+    private Button loginButton;
 
     @FXML
     protected void onRegistrationButtonClick() throws IOException, SQLException {
@@ -43,7 +42,7 @@ public class LoginController {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("registration-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
         //stage.setTitle("AI BOT for SEO");
-        Stage primaryStage = (Stage) RegistrationButton.getScene().getWindow();
+        Stage primaryStage = (Stage) registrationButton.getScene().getWindow();
         //Registration.getScene().setRoot(scene1.getRoot());
         //primaryStage.getScene().setRoot(scene1.getRoot());
         primaryStage.setScene(scene1);
@@ -56,7 +55,7 @@ public class LoginController {
     protected void onEnterButtonClick() throws IOException, SQLException {
         try {
             alertText.setTextFill(Color.BLACK);
-            alertText.setText(Login.getText() + " " + Password.getText());
+            alertText.setText(login.getText() + " " + password.getText());
 
             // opening database connection to MySQL server
             //Connection con = DriverManager.getConnection("jdbc:mariadb://89.184.93.8:3306/javafx_aibot?user=u_javafx_aib&password=Ul1SwXimEQ9W");
@@ -64,13 +63,13 @@ public class LoginController {
             //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
             // or
             //ClassSingleton classSingleton1 = ClassSingleton.getInstance();
-            dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+            DbmsConnection dbmsconnection = DbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 
             String sql = "SELECT * FROM users WHERE login=? AND password=? ";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, Login.getText());
-            stmt.setString(2, Password.getText());
+            stmt.setString(1, login.getText());
+            stmt.setString(2, password.getText());
 
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -81,7 +80,7 @@ public class LoginController {
                 // new scene 'layout-view.fxml'
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
                 Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-                Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
+                Stage primaryStage = (Stage) loginButton.getScene().getWindow();
                 primaryStage.setScene(scene1);
 
             } else {

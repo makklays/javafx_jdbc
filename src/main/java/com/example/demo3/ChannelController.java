@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -19,9 +18,9 @@ import java.util.ResourceBundle;
 
 public class ChannelController implements Initializable {
     @FXML
-    private Button CreditCardButton;
+    private Button creditCardButton;
     @FXML
-    private Button ChannelsButton;
+    private Button channelsButton;
     @FXML
     private Button CompaniesButton;
     @FXML
@@ -55,7 +54,7 @@ public class ChannelController implements Initializable {
     private Button ExitButton;
 
     ObservableList<Channel> initialData() throws SQLException, ClassNotFoundException {
-        dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+        DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
         String sql = "SELECT * FROM channels ORDER BY title ASC ";
@@ -95,7 +94,7 @@ public class ChannelController implements Initializable {
         boolean connect = validate_form();
         if (connect) {
             // add channel to database
-            dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+            DbmsConnection dbmsconnection = DbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 
             String sql1 = "INSERT INTO channels (title, description) VALUES (?, ?) ";
@@ -172,7 +171,7 @@ public class ChannelController implements Initializable {
     public void CreditCardButton(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("credit-card-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) CreditCardButton.getScene().getWindow();
+        Stage primaryStage = (Stage) creditCardButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 
@@ -182,7 +181,7 @@ public class ChannelController implements Initializable {
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-        Stage primaryStage = (Stage) ChannelsButton.getScene().getWindow();
+        Stage primaryStage = (Stage) channelsButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 

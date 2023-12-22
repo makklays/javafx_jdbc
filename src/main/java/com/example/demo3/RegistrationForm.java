@@ -1,5 +1,6 @@
 package com.example.demo3;
 
+import com.example.demo3.model.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;

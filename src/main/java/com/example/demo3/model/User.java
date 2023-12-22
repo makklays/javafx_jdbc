@@ -1,9 +1,8 @@
-package com.example.demo3;
+package com.example.demo3.model;
 
-import javafx.scene.paint.Color;
+import com.example.demo3.DbmsConnection;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class User
@@ -17,7 +16,7 @@ public class User
     private String phone;
     private String email;
     private String city;
-    private Integer is_auth;
+    private boolean isAuth;
     private String code;
     private String created_at;
     private String updated_at;
@@ -66,7 +65,7 @@ public class User
         try {
             //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
             // or
-            dbmsConnection dbmsconnection = dbmsConnection.getInstance();
+            DbmsConnection dbmsconnection = DbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 
             String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?) ";
@@ -168,12 +167,12 @@ public class User
         this.city = city;
     }
 
-    public Integer getIs_auth() {
-        return is_auth;
+    public boolean getAuth() {
+        return isAuth;
     }
 
-    public void setIs_auth(Integer is_auth) {
-        this.is_auth = is_auth;
+    public void setAuth(boolean auth) {
+        this.isAuth = auth;
     }
 
     public String getCode() {
@@ -201,31 +200,4 @@ public class User
     }
 }
 
-/******************************
- CREATE TABLE `users` (
- `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
- `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `firstname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `lastname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `gender` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
- `city` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
- `is_auth` int(2) DEFAULT 0,
- `code` varchar(25) DEFAULT NULL,
- `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
- `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
- PRIMARY KEY (`id`),
- KEY `login` (`login`),
- KEY `firstname` (`firstname`),
- KEY `lastname` (`lastname`),
- KEY `password` (`password`),
- KEY `gender` (`gender`),
- KEY `is_auth` (`is_auth`),
- KEY `code` (`code`),
- KEY `phone` (`phone`),
- KEY `email` (`email`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
- *******************************/
 
