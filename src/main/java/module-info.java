@@ -11,4 +11,6 @@ module com.example.demo3 {
     opens com.example.demo3 to javafx.fxml;
     //opens sample.Datamodel;
     exports com.example.demo3;
+    exports com.example.demo3.model;
+    opens com.example.demo3.model to javafx.fxml;
 }
