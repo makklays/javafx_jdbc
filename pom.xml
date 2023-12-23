@@ -70,12 +70,7 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>2.1.2</version>
         </dependency-->
-        <!-- Hibernate -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-c3p0</artifactId>
-            <version>5.3.6.Final</version>
-        </dependency>
+
         <!-- Logger slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -98,6 +93,31 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+
+        <!-- Hibernate -->
+        <!-- to start need only this -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.3.6.Final</version>
+            <type>pom</type>
+        </dependency>
+
+        <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.3.6.Final</version>
+        </dependency>
+
+        <!-- optional -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>5.3.6.Final</version>
+        </dependency>
+        <!--END Hibernate -->
     </dependencies>
 
     <build>

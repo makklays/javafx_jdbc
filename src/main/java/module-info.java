@@ -7,6 +7,8 @@ module com.example.demo3 {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires org.hibernate.orm.core;
+    requires java.persistence;
 
     opens com.example.demo3 to javafx.fxml;
     //opens sample.Datamodel;
