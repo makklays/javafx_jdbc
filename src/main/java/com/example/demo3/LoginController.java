@@ -75,7 +75,7 @@ public class LoginController {
             // log
             logger.info("login ==> " + Login.getText() + " password ==> " + Password.getText());
 
-            //--- hibernate -----------
+            //--- Hibernate -----------
             UserEntity Usr = new UserEntity();
             // Usr.setId(111);
             Usr.setLogin("MakKlays");
@@ -109,7 +109,7 @@ public class LoginController {
             trRead.commit();
             sessionCreate.close();
             */
-            //--- end hibernate ----------
+            //--- END Hibernate ----------
 
             // opening database connection to MySQL server
             //Connection con = DriverManager.getConnection("jdbc:mariadb://89.184.93.8:3306/javafx_aibot?user=u_javafx_aib&password=Ul1SwXimEQ9W");

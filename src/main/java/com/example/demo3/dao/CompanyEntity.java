@@ -1,6 +1,7 @@
 package com.example.demo3.dao;
 
 import javax.persistence.*;
+import java.util.Set;
 //import java.util.Date;
 
 @Entity
@@ -8,6 +9,11 @@ import javax.persistence.*;
 public class CompanyEntity {
     private int id;
     private int channel_id;
+
+    @ManyToOne
+    @JoinColumn(name="channel_id", nullable=false)
+    private ChannelEntity channel;
+
     private String title;
     private int count_subscribe;
     private int speed_hour_from;
@@ -29,13 +35,16 @@ public class CompanyEntity {
 
     @Basic
     @Column(name = "channel_id", nullable = false, insertable = true, updatable = true)
-    public int getChannel_id() {
+    public int getChannelId() {
         return channel_id;
     }
 
-    public void setChannel_id(int channel_id) {
+    public void setChannelId(int channel_id) {
         this.channel_id = channel_id;
     }
+
+    public ChannelEntity getChannel() { return channel; }
+    public void setChannel(ChannelEntity channel) { this.channel = channel; }
 
     @Basic
     @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 60)
@@ -79,11 +88,11 @@ public class CompanyEntity {
 
     @Basic
     @Column(name = "is_views", nullable = false, insertable = true, updatable = true)
-    public int getIs_views() {
+    public int getIsViews() {
         return is_views;
     }
 
-    public void setIs_views(int is_views) {
+    public void setIsViews(int is_views) {
         this.is_views = is_views;
     }
 

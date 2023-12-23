@@ -1,6 +1,7 @@
 package com.example.demo3.dao;
 
 import javax.persistence.*;
+import java.util.Set;
 //import java.util.Date;
 
 @Entity
@@ -10,6 +11,11 @@ public class ChannelEntity {
     private String title;
     private String description;
     //private Date birthDate;
+
+    @OneToMany(mappedBy="channels")
+    private Set<CompanyEntity> companies;
+
+    public ChannelEntity() {}
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
@@ -40,6 +46,9 @@ public class ChannelEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Set<CompanyEntity> getCompanies() { return companies; }
+    public void setCompanies(Set<CompanyEntity> companies) { this.companies = companies; }
 
     @Override
     public boolean equals(Object o) {

@@ -66,7 +66,7 @@ public class InfoController {
         Stage primaryStage = (Stage) InfoButton.getScene().getWindow();
         primaryStage.setScene(scene1);
 
-        // Hibernate
+        //--- Hibernate --------------
         System.out.println("Hibernate tutorial");
 
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
@@ -80,6 +80,7 @@ public class InfoController {
         session.save(channelEntity);
         session.getTransaction().commit();
         session.close();
+        //--- END Hibernate ----------
     }
 
     @FXML
