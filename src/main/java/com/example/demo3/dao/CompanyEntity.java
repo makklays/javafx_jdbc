@@ -11,7 +11,7 @@ public class CompanyEntity {
     private int channel_id;
 
     @ManyToOne
-    @JoinColumn(name="channel_id", nullable=false)
+    @JoinColumn(name="channel_id", nullable=false, insertable = false, updatable = false)
     private ChannelEntity channel;
 
     private String title;

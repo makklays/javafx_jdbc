@@ -13,6 +13,7 @@ public class ChannelEntity {
     //private Date birthDate;
 
     @OneToMany(mappedBy="channels")
+    @JoinColumn(name = "channel_id") // ? channel_id or id
     private Set<CompanyEntity> companies;
 
     public ChannelEntity() {}
