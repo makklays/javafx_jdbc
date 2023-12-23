@@ -1,5 +1,6 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
+import com.example.demo3.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class StatisticsController {
+public class InfoController {
     @FXML
     private Button CreditCardButton;
     @FXML

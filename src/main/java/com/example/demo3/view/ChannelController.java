@@ -1,5 +1,7 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
+import com.example.demo3.configuration.DbmsConnection;
+import com.example.demo3.HelloApplication;
 import com.example.demo3.model.Channel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

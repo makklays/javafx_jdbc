@@ -1,5 +1,7 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
+import com.example.demo3.configuration.DbmsConnection;
+import com.example.demo3.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -14,10 +16,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.LogManager;
-
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
@@ -114,13 +112,11 @@ public class LoginController {
             con.close();
         }
         catch (SQLException e) {
-            e.printStackTrace();
             // log
             logger.log(Level.WARNING, "SQLException :", e);
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
             // log
             logger.log(Level.WARNING, "IOException | ClassNotFoundException :", e);
-            throw new RuntimeException(e);
         }
     }
 }

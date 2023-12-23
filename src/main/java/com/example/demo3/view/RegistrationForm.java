@@ -1,4 +1,4 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
 import com.example.demo3.model.User;
 import javafx.event.ActionEvent;
