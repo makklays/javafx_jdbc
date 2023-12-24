@@ -2,24 +2,27 @@ package com.example.demo3.dao;
 
 import javax.persistence.*;
 import java.util.Set;
-//import java.util.Date;
 
 @Entity
 @Table(name = "channels", schema = "", catalog = "ai_bot_for_seo")
 public class ChannelEntity {
+
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     private Long id;
+    @Basic
+    @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 60)
     private String title;
+    @Basic
+    @Column(name = "description", nullable = false, insertable = true, updatable = true, length = 60)
     private String description;
     //private Date birthDate;
+
 
     @OneToMany(mappedBy="channels")
     @JoinColumn(name = "channel_id") // ? channel_id or id
     private Set<CompanyEntity> companies;
 
-    public ChannelEntity() {}
-
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public Long getId() {
         return id;
     }
@@ -28,8 +31,7 @@ public class ChannelEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 60)
+
     public String getTitle() {
         return title;
     }
@@ -38,8 +40,7 @@ public class ChannelEntity {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "description", nullable = false, insertable = true, updatable = true, length = 60)
+
     public String getDescription() {
         return description;
     }

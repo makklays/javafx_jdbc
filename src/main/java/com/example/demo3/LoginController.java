@@ -76,18 +76,18 @@ public class LoginController {
             logger.info("login ==> " + Login.getText() + " password ==> " + Password.getText());
 
             //--- Hibernate -----------
-            UserEntity Usr = new UserEntity();
-            // Usr.setId(111);
-            Usr.setLogin("MakKlays");
-            Usr.setFirstname("Alexanderrrr");
-            Usr.setLastname("Kuzivvvvv");
-            Usr.setPassword("12345678");
-            Usr.setPhone("+380988705397");
-            Usr.setEmail("makklays@gmail.com");
-            Usr.setCity("CITY 22");
-            Usr.setGender("man");
-            Usr.setCode("1111222233334444");
-            Usr.setIsAuth(false);
+            UserEntity user = new UserEntity();
+            // user.setId(111);
+            user.setLogin("MakKlays");
+            user.setFirstname("Alexanderrrr");
+            user.setLastname("Kuzivvvvv");
+            user.setPassword("12345678");
+            user.setPhone("+380988705397");
+            user.setEmail("makklays@gmail.com");
+            user.setCity("CITY 22");
+            user.setGender("man");
+            user.setCode("1111222233334444");
+            user.setIsAuth(false);
 
             /*
             Configuration conf = new Configuration().configure;
@@ -98,7 +98,7 @@ public class LoginController {
             // create
             Session sessionCreate = sf.openSession();
             Transaction trCreate = sessionCreate.beginTransaction; // Начало транзакции
-            sessionCreate.save(Usr);
+            sessionCreate.save(user);
             trCreate.commit();
             sessionCreate.close(); // Завершение транзакции
             // read
