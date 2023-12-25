@@ -12,8 +12,9 @@ module com.example.demo3 {
 
     requires org.hibernate.orm.core;
     requires java.persistence;
-    //requires javax.naming.Referenceable;
 
+    //requires javax.naming.Referenceable;
+    requires java.naming;
 
     opens com.example.demo3 to javafx.fxml;
     //opens sample.Datamodel;
