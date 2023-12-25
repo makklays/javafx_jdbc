@@ -1,5 +1,6 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
+import com.example.demo3.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

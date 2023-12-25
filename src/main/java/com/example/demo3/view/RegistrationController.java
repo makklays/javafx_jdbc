@@ -1,5 +1,7 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
+import com.example.demo3.configuration.DbmsConnection;
+import com.example.demo3.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +42,7 @@ public class RegistrationController {
     private TextField CreditCardText;
     @FXML
     private Button LoginButton;
-    private static final Logger logger = Logger.getLogger("my logger");
+    private static final Logger logger = Logger.getLogger(RegistrationController.class.getName());
 
     @FXML
     protected void onLoginButtonClick() throws IOException, SQLException {
@@ -158,10 +160,7 @@ public class RegistrationController {
             }
         }
         catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             logger.log(Level.WARNING, "trouble exception", e);
-            throw new RuntimeException(e);
         }
     }
 

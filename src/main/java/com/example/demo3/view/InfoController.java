@@ -1,21 +1,22 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.example.demo3.HelloApplication;
+
+import com.example.demo3.dao.ChannelEntity;
+import com.example.demo3.utils.HibernateSessionFactory;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
+import org.hibernate.Session;
 
-public class CompanyController {
+import java.io.IOException;
+import java.sql.SQLException;
+
+public class InfoController {
     @FXML
     private Button CreditCardButton;
     @FXML
@@ -39,8 +40,6 @@ public class CompanyController {
 
     @FXML
     public void ChannelsButton(ActionEvent actionEvent) throws IOException, SQLException {
-        System.out.println("==> channel click ");
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) ChannelsButton.getScene().getWindow();
@@ -49,8 +48,6 @@ public class CompanyController {
 
     @FXML
     public void CompaniesButton(ActionEvent actionEvent) throws IOException, SQLException {
-        System.out.println("==> company click ");
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("company-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) CompaniesButton.getScene().getWindow();
@@ -71,6 +68,22 @@ public class CompanyController {
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) InfoButton.getScene().getWindow();
         primaryStage.setScene(scene1);
+
+        //--- Hibernate --------------
+        System.out.println("Hibernate tutorial");
+
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ChannelEntity channelEntity = new ChannelEntity();
+        channelEntity.setTitle("Nick");
+        channelEntity.setDescription("VN");
+        //channelEntity.setBirthDate(new java.util.Date());
+
+        session.save(channelEntity);
+        session.getTransaction().commit();
+        session.close();
+        //--- END Hibernate ----------
     }
 
     @FXML

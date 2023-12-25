@@ -1,6 +1,6 @@
 package com.example.demo3.model;
 
-import com.example.demo3.DbmsConnection;
+import com.example.demo3.configuration.DbmsConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,16 +1,22 @@
-package com.example.demo3;
+package com.example.demo3.view;
 
+import com.example.demo3.HelloApplication;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.SQLException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
 
-public class StatisticsController {
+public class CompanyController {
     @FXML
     private Button CreditCardButton;
     @FXML
@@ -34,6 +40,8 @@ public class StatisticsController {
 
     @FXML
     public void ChannelsButton(ActionEvent actionEvent) throws IOException, SQLException {
+        System.out.println("==> channel click ");
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("channel-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) ChannelsButton.getScene().getWindow();
@@ -42,6 +50,8 @@ public class StatisticsController {
 
     @FXML
     public void CompaniesButton(ActionEvent actionEvent) throws IOException, SQLException {
+        System.out.println("==> company click ");
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("company-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) CompaniesButton.getScene().getWindow();
