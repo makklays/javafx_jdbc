@@ -1,12 +1,17 @@
 package com.example.demo3.view;
 
 import com.example.demo3.HelloApplication;
+
+import com.example.demo3.dao.ChannelEntity;
+import com.example.demo3.utils.HibernateSessionFactory;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.hibernate.Session;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -63,6 +68,22 @@ public class InfoController {
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) InfoButton.getScene().getWindow();
         primaryStage.setScene(scene1);
+
+        //--- Hibernate --------------
+        System.out.println("Hibernate tutorial");
+
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ChannelEntity channelEntity = new ChannelEntity();
+        channelEntity.setTitle("Nick");
+        channelEntity.setDescription("VN");
+        //channelEntity.setBirthDate(new java.util.Date());
+
+        session.save(channelEntity);
+        session.getTransaction().commit();
+        session.close();
+        //--- END Hibernate ----------
     }
 
     @FXML

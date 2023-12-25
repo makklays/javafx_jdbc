@@ -26,6 +26,7 @@ package com.example.demo3.model;
  KEY `phone` (`phone`),
  KEY `email` (`email`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+
 ---------------
  CREATE TABLE `channels` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -37,6 +38,7 @@ package com.example.demo3.model;
  KEY `title` (`title`),
  KEY `description` (`description`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+
  --------------
  CREATE TABLE `credit_cards` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -61,6 +63,7 @@ package com.example.demo3.model;
  KEY `credit_card` (`credit_card`),
  KEY `phone` (`phone`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+
  --------------
  CREATE TABLE `companies` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -79,4 +82,5 @@ package com.example.demo3.model;
  KEY `title` (`title`),
  KEY `channel_id` (`channel_id`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+
  *******************************/
