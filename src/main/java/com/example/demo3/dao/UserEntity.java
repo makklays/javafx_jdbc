@@ -1,5 +1,6 @@
 package com.example.demo3.dao;
 
+import java.util.Objects;
 import javax.persistence.*;
 //import java.util.Date;
 
@@ -148,6 +149,29 @@ public class UserEntity {
 
     public void setUpdatedAt(String updated_at) {
         this.updated_at = updated_at;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserEntity that = (UserEntity) o;
+
+        if (isAuth != that.isAuth) return false;
+        if (!Objects.equals(id, that.id)) return false;
+        if (!Objects.equals(login, that.login)) return false;
+        if (!Objects.equals(firstname, that.firstname)) return false;
+        if (!Objects.equals(lastname, that.lastname)) return false;
+        if (!Objects.equals(password, that.password)) return false;
+        if (!Objects.equals(gender, that.gender)) return false;
+        if (!Objects.equals(phone, that.phone)) return false;
+        if (!Objects.equals(email, that.email)) return false;
+        if (!Objects.equals(city, that.city)) return false;
+        if (!Objects.equals(code, that.code)) return false;
+        if (!Objects.equals(created_at, that.created_at)) return false;
+        return Objects.equals(updated_at, that.updated_at);
     }
 
     @Override
