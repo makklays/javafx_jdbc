@@ -24,6 +24,8 @@ public class InfoController {
     @FXML
     private Button CompaniesButton;
     @FXML
+    private Button UploadDatasButton;
+    @FXML
     private Button StatisticsButton;
     @FXML
     private Button InfoButton;
@@ -51,6 +53,16 @@ public class InfoController {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("company-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) CompaniesButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
+    }
+
+    @FXML
+    public void UploadDatasButton(ActionEvent actionEvent) throws IOException, SQLException {
+        System.out.println("==> upload datas click ");
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("upload-datas-view.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+        Stage primaryStage = (Stage) UploadDatasButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 

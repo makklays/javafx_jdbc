@@ -42,8 +42,8 @@
                         <Font size="18.0" />
                     </font>
                 </Label>
-                <Button fx:id="AddAddChannelButton" layoutX="24.0" layoutY="467.0" mnemonicParsing="false" onAction="#onAddAddChannelButton" prefHeight="24.0" prefWidth="96.0" text="Add" />
-                <Button fx:id="CancelAddChannelButton" layoutX="140.0" layoutY="467.0" mnemonicParsing="false" onAction="#onCancelAddChannelButton" prefHeight="24.0" prefWidth="96.0" text="Cancel" />
+                <Button fx:id="AddAddChannelButton" layoutX="24.0" layoutY="467.0" mnemonicParsing="false" onAction="#onAddAddChannelButton" prefHeight="24.0" prefWidth="96.0" text="Add" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" />
+                <Button fx:id="CancelAddChannelButton" layoutX="140.0" layoutY="467.0" mnemonicParsing="false" onAction="#onCancelAddChannelButton" prefHeight="24.0" prefWidth="96.0" text="Cancel" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" />
                 <Label fx:id="AlertText" layoutX="25.0" layoutY="445.0" />
 
 

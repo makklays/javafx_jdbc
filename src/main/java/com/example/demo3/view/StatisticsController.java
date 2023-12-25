@@ -1,17 +1,27 @@
 package com.example.demo3.view;
 
 import com.example.demo3.HelloApplication;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.sql.SQLException;
+import javafx.scene.chart.NumberAxis;
 
-public class StatisticsController {
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+public class StatisticsController implements Initializable {
     @FXML
     private Button CreditCardButton;
     @FXML
@@ -19,11 +29,57 @@ public class StatisticsController {
     @FXML
     private Button CompaniesButton;
     @FXML
+    private Button UploadDatasButton;
+    @FXML
     private Button StatisticsButton;
     @FXML
     private Button InfoButton;
     @FXML
     private Button ExitButton;
+
+    @FXML
+    private final NumberAxis xAxis = new NumberAxis();
+    @FXML
+    private final CategoryAxis yAxis = new CategoryAxis();
+    @FXML
+    private AreaChart<String, Number> StatAreaChart;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (StatAreaChart != null) {
+
+            xAxis.setLabel("Percent");
+            //xAxis.setTickLabelRotation(90);
+
+            yAxis.setLabel("Performance");
+
+            StatAreaChart.setLegendVisible(true);
+            StatAreaChart.setCreateSymbols(true);
+            StatAreaChart.setTitle("Temperature Monitoring (in Degrees C)");
+
+            XYChart.Series<String, Number> data = new XYChart.Series<String, Number>();
+            data.getData().add(new XYChart.Data<>("2004", 82502));
+            data.getData().add(new XYChart.Data<>("2005", 84026));
+            data.getData().add(new XYChart.Data<>("2006", 85007));
+            data.getData().add(new XYChart.Data<>("2007", 86216));
+            data.getData().add(new XYChart.Data<>("2008", 85559));
+            data.getData().add(new XYChart.Data<>("2009", 84491));
+            data.getData().add(new XYChart.Data<>("2010", 87672));
+            data.getData().add(new XYChart.Data<>("2011", 88575));
+            data.getData().add(new XYChart.Data<>("2012", 89837));
+            data.getData().add(new XYChart.Data<>("2013", 90701));
+
+            XYChart.Series<String, Number> series1 = new XYChart.Series<String, Number>();
+            series1.getData().add(new XYChart.Data<>( "2004", 80000));
+            series1.getData().add(new XYChart.Data<>( "2005", 20000));
+            series1.getData().add(new XYChart.Data<>( "2006", 50000));
+            series1.getData().add(new XYChart.Data<>( "2010", 10000));
+            series1.getData().add(new XYChart.Data<>( "2022", 60000));
+            series1.getData().add(new XYChart.Data<>( "2023", 80000));
+            StatAreaChart.getData().addAll(series1, data);
+
+        }
+    }
 
     @FXML
     public void CreditCardButton(ActionEvent actionEvent) throws IOException, SQLException {
@@ -46,6 +102,16 @@ public class StatisticsController {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("company-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) CompaniesButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
+    }
+
+    @FXML
+    public void UploadDatasButton(ActionEvent actionEvent) throws IOException, SQLException {
+        System.out.println("==> upload datas click ");
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("upload-datas-view.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+        Stage primaryStage = (Stage) UploadDatasButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 

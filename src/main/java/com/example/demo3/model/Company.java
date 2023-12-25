@@ -12,19 +12,16 @@ public class Company {
     private String start_from;
     private String comments;
 
-    public void Channel() {
-        this.channel_id = 0;
-        this.title = "";
-        this.count_subscribe = 0;
-        this.speed_hour_from = 0;
-        this.speed_hour_to = 0;
-        this.is_views = 0;
-        this.procent_off = 0;
-        this.start_from = "";
-        this.comments = "";
+    public Company(Integer id, String title, Integer channel_id, Integer count_subscribe, Integer speed_hour_from, Integer speed_hour_to) {
+        this.id = id;
+        this.title = title;
+        this.channel_id = channel_id;
+        this.count_subscribe = count_subscribe;
+        this.speed_hour_from = speed_hour_from;
+        this.speed_hour_to = speed_hour_to;
     }
 
-    public void Channel(String title, Integer channel_id, Integer count_subscribe, Integer speed_hour_from, Integer speed_hour_to, Integer is_views, Integer procent_off, String start_from, String comments) {
+    public void Company(String title, Integer channel_id, Integer count_subscribe, Integer speed_hour_from, Integer speed_hour_to, Integer is_views, Integer procent_off, String start_from, String comments) {
         this.title = title;
         this.channel_id = channel_id;
         this.count_subscribe = count_subscribe;
@@ -34,6 +31,18 @@ public class Company {
         this.procent_off = procent_off;
         this.start_from = start_from;
         this.comments = comments;
+    }
+
+    public void Company() {
+        this.channel_id = 0;
+        this.title = "";
+        this.count_subscribe = 0;
+        this.speed_hour_from = 0;
+        this.speed_hour_to = 0;
+        this.is_views = 0;
+        this.procent_off = 0;
+        this.start_from = "";
+        this.comments = "";
     }
 
     public Integer getId() { return id; }
