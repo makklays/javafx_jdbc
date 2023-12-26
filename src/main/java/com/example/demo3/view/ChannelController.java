@@ -78,10 +78,6 @@ public class ChannelController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //System.out.println("==> " + url + " <--- ");
-        // get title of scene ?????
-        //if (Scene scene = (Scene) addAddChannelButton.getScene().getClass())
-
         if (ChannelsTable != null) {
             Column1.setCellValueFactory(new PropertyValueFactory<>("Id"));
             Column2.setCellValueFactory(new PropertyValueFactory<>("Title"));

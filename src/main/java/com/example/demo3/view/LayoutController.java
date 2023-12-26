@@ -18,6 +18,8 @@ import java.sql.*;
 
 public class LayoutController {
     @FXML
+    public Label loginLabel;
+    @FXML
     private Button CreditCardButton;
     @FXML
     private Button StatisticsButton;

@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * Class: RegistrationForm
  * `Example of Registration Form (from differents elements)`
  */
-public class RegistrationForm
+public class ExampleForm
 {
     Label firstNamelbl;
     TextField firstNametxt;
@@ -110,26 +110,12 @@ public class RegistrationForm
                         selectedjpost+=chk3.getText() + " ";
                     }
 
-                    User u = new User(firstNametxt.getText(), lastNametxt.getText(), passwordtxt.getText(), gender, phonetxt.getText(), emailtxt.getText(), (String)city.getValue());
+                    User u = new User(firstNametxt.getText(), lastNametxt.getText(), passwordtxt.getText(), gender,
+                            phonetxt.getText(), emailtxt.getText(), (String)city.getValue());
 
-					/*TodoDataAccess tt = null;
-					try {
-						tt = new TodoDataAccess();
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					try {
-						tt.getAllRows();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}*/
-
-                    System.out.println("DATA: "+firstNametxt.getText()+" "+lastNametxt.getText()+" "+passwordtxt.getText()+" "+gender+" "+selectedjpost+" "+phonetxt.getText()+" "+emailtxt.getText()+" "+(String)city.getValue());
+                    System.out.println("DATA: "+firstNametxt.getText()+" "+lastNametxt.getText()+" "+
+                            passwordtxt.getText()+" "+gender+" "+selectedjpost+" "+phonetxt.getText()+" "+
+                            emailtxt.getText()+" "+(String)city.getValue());
 
                     boolean result = u.insertUser();
 

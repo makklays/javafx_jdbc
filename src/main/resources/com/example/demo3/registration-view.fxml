@@ -25,31 +25,11 @@
         </AnchorPane>
         <AnchorPane layoutX="310.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #FFFFFF;">
             <children>
-                <!--<Label layoutX="110.0" layoutY="184.0" text="Login">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="73.0" layoutY="235.0" text="Password">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>-->
                 <Button fx:id="RegistrationButton" layoutX="127.0" layoutY="378.0" mnemonicParsing="false" onAction="#onRegistrationButtonClick" prefHeight="28.0" prefWidth="246.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Registration">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <!--<PasswordField fx:id="Password" layoutX="172.0" layoutY="229.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </PasswordField>-->
-                <!--<TextField fx:id="Login" layoutX="172.0" layoutY="178.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </TextField>-->
                 <Label layoutX="140.0" layoutY="32.0" text="Secure registration">
                     <font>
                         <Font size="24.0" />

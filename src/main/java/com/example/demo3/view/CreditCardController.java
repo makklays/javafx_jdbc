@@ -55,9 +55,7 @@ public class CreditCardController implements Initializable {
     private TextField searchText;
 
     ObservableList<CreditCard> initialData() throws SQLException, ClassNotFoundException {
-        // opening database connection to MySQL server
-        //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
-        // or
+        // connection to MySQL server
         DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
@@ -68,7 +66,9 @@ public class CreditCardController implements Initializable {
         ObservableList<CreditCard> list = FXCollections.observableArrayList();
 
         while(rs.next()) {
-            CreditCard card1 = new CreditCard(rs.getInt("account"), rs.getString("bank"), rs.getString("firstname"), rs.getString("lastname"), rs.getFloat("amount"), rs.getString("currency"), rs.getInt("fromaccount"), rs.getString("phone"));
+            CreditCard card1 = new CreditCard(rs.getInt("account"), rs.getString("bank"),
+                    rs.getString("firstname"), rs.getString("lastname"), rs.getFloat("amount"),
+                    rs.getString("currency"), rs.getInt("fromaccount"), rs.getString("phone"));
             System.out.println(card1.getInfo());
 
             list.add(card1);
@@ -76,6 +76,7 @@ public class CreditCardController implements Initializable {
 
         return list;
 
+        // example FXCollections.observableArrayList
         /*CreditCard cc1 = new CreditCard(123123,"Nation Bank","Alexander","Kuziv");
         CreditCard cc2 = new CreditCard(124444,"Alfa Bank","Alexander","Kuziv");
         CreditCard cc3 = new CreditCard(125555,"Privat Bank","Alexander","Kuziv");
@@ -102,13 +103,7 @@ public class CreditCardController implements Initializable {
 
     @FXML
     public void SearchButton(ActionEvent event) throws SQLException, ClassNotFoundException {
-        //CreditCard card = new CreditCard(12311111,"Nation Bank11","Alexander11","Kuziv11", 100F, "USD", 1111, "+380988705397");
-        //System.out.println(card.getInfo());
-        //boolean b = CreditCardTable.getItems().add(card);
-        //System.out.println("==> " + b);
-
-        //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
-        // or
+        // connect to MySQL
         DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
@@ -118,15 +113,16 @@ public class CreditCardController implements Initializable {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, "%"+serachtxt+"%");
             stmt.setString(2, serachtxt);
-            //System.out.println(stmt.getQueryTimeout()); // get query - sql
             ResultSet rs = stmt.executeQuery();
 
             ObservableList<CreditCard> list = FXCollections.observableArrayList();
 
             while(rs.next()) {
-                System.out.println("Search: "+ serachtxt + " ==> " +rs.getInt("account")+ " " + rs.getFloat("amount"));
+                System.out.println("Search: " + serachtxt + " ==> " + rs.getInt("account") + " " + rs.getFloat("amount"));
 
-                CreditCard card1 = new CreditCard(rs.getInt("account"), rs.getString("bank"), rs.getString("firstname"), rs.getString("lastname"), rs.getFloat("amount"), rs.getString("currency"), rs.getInt("fromaccount"), rs.getString("phone"));
+                CreditCard card1 = new CreditCard(rs.getInt("account"), rs.getString("bank"),
+                        rs.getString("firstname"), rs.getString("lastname"), rs.getFloat("amount"),
+                        rs.getString("currency"), rs.getInt("fromaccount"), rs.getString("phone"));
                 list.add(card1);
             }
 

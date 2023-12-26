@@ -55,6 +55,8 @@ public class StatisticsController implements Initializable {
 
             StatAreaChart.setLegendVisible(true);
             StatAreaChart.setCreateSymbols(true);
+
+            // example of datas
             StatAreaChart.setTitle("Temperature Monitoring (in Degrees C)");
 
             XYChart.Series<String, Number> data = new XYChart.Series<String, Number>();

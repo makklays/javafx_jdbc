@@ -25,6 +25,8 @@ import javafx.stage.FileChooser;
 
 public class CompanyController implements Initializable {
     @FXML
+    public Label TextAlert;
+    @FXML
     private Button CreditCardButton;
     @FXML
     private Button ChannelsButton;
@@ -131,9 +133,6 @@ public class CompanyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // get title of scene ?????
-        //if (Scene scene = (Scene) addAddChannelButton.getScene().getClass())
-
         if (CompaniesTable != null) {
             Column1.setCellValueFactory(new PropertyValueFactory<>("Id"));
             Column2.setCellValueFactory(new PropertyValueFactory<>("Title"));
@@ -303,9 +302,6 @@ public class CompanyController implements Initializable {
                 System.out.println("Can't insert company in the database");
             }
 
-            // Out
-            //System.out.println("Channel ==> " + TitleText.getText() + " --- " + DescrArea.getText());
-
             // redirect to list of channels
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("company-view.fxml"));
             Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
@@ -332,14 +328,6 @@ public class CompanyController implements Initializable {
             AlertText.setText("Enter count subscribe");
             proceed = false;
         }
-        /*if (SpeedFromSpinner.getValue() > 0 && proceed == true) {
-            AlertText.setText("Enter speed from");
-            proceed = false;
-        }
-        if (SpeedToSpinner.getValue() > 0 && proceed == true) {
-            AlertText.setText("Enter speed to");
-            proceed = false;
-        }*/
         if (DateText.getValue() == null && proceed == true) {
             AlertText.setText("Enter date");
             proceed = false;

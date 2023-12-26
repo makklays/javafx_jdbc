@@ -50,20 +50,10 @@ public class LoginController {
 
         logger.info("Need registration");
 
-        //AnchorPane apane = new AnchorPane();
-        //apane.getChildren().add(new Label("My Text !"));
-        //Registration.getScene().setRoot(apane);
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("registration-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
-        //stage.setTitle("AI BOT for SEO");
         Stage primaryStage = (Stage) RegistrationButton.getScene().getWindow();
-        //Registration.getScene().setRoot(scene1.getRoot());
-        //primaryStage.getScene().setRoot(scene1.getRoot());
         primaryStage.setScene(scene1);
-
-        //Stage primaryStage;
-        //primaryStage.getScene().setRoot(LoginController.registrationScene());
     }
 
     @FXML
@@ -77,7 +67,6 @@ public class LoginController {
 
             //--- Hibernate -----------
             UserEntity user = new UserEntity();
-            // user.setId(111);
             user.setLogin("MakKlays");
             user.setFirstname("Alexanderrrr");
             user.setLastname("Kuzivvvvv");
@@ -111,12 +100,7 @@ public class LoginController {
             */
             //--- END Hibernate ----------
 
-            // opening database connection to MySQL server
-            //Connection con = DriverManager.getConnection("jdbc:mariadb://89.184.93.8:3306/javafx_aibot?user=u_javafx_aib&password=Ul1SwXimEQ9W");
-            //Connection con = DriverManager.getConnection("jdbc:mysql://vs3092.mirohost.net:3306/javafx_aibot", "u_javafx_aib", "Ul1SwXimEQ9W");
-            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
-            // or
-            //ClassSingleton classSingleton1 = ClassSingleton.getInstance();
+            // connection to MySQL server
             DbmsConnection dbmsconnection = DbmsConnection.getInstance();
             Connection con = dbmsconnection.getConnection();
 

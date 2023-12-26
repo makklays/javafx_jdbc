@@ -19,6 +19,10 @@ import java.util.logging.LogManager;
 
 public class RegistrationController {
     @FXML
+    public Button RegistrationButton;
+    @FXML
+    public ToggleGroup group;
+    @FXML
     private Label alertText;
     @FXML
     private TextField LoginText;
@@ -46,20 +50,10 @@ public class RegistrationController {
 
     @FXML
     protected void onLoginButtonClick() throws IOException, SQLException {
-        //AnchorPane apane = new AnchorPane();
-        //apane.getChildren().add(new Label("My Text !"));
-        //Registration.getScene().setRoot(apane);
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
-        //stage.setTitle("AI BOT for SEO");
         Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
-        //Registration.getScene().setRoot(scene1.getRoot());
-        //primaryStage.getScene().setRoot(scene1.getRoot());
         primaryStage.setScene(scene1);
-
-        //Stage primaryStage; // get scene
-        //primaryStage.getScene().setRoot(LoginController.registrationScene());
     }
 
     @FXML
@@ -88,9 +82,7 @@ public class RegistrationController {
                     gender = GenderWoman.getText();
                 }
 
-                // opening database connection to MySQL server
-                //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
-                // or
+                // connection to MySQL server
                 DbmsConnection dbmsconnection = DbmsConnection.getInstance();
                 Connection con = dbmsconnection.getConnection();
 
@@ -113,9 +105,12 @@ public class RegistrationController {
                 } else {
                     System.out.println("User not exist in the database. And can inserting in database.");
 
-                    System.out.println("DATA: "+LoginText.getText()+" "+PasswordText.getText()+" "+FirstnameText.getText()+" "+LastnameText.getText()+" "+gender+" "+PhoneText.getText()+" "+EmailText.getText()+" "+CreditCardText.getText());
+                    System.out.println("DATA: "+LoginText.getText()+" "+PasswordText.getText()+" "+
+                            FirstnameText.getText()+" "+LastnameText.getText()+" "+gender+" "+PhoneText.getText()+" "+
+                            EmailText.getText()+" "+CreditCardText.getText());
 
-                    String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
+                    String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email, code) "+
+                                            " VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
                     PreparedStatement stmt1 = con.prepareStatement(sql1);
                     stmt1.setString(1, LoginText.getText());
                     stmt1.setString(2, PasswordText.getText());
@@ -144,11 +139,6 @@ public class RegistrationController {
 
                         System.out.println("Can't insert user in the database");
                     }
-
-                    // or
-                    //String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email, code) VALUES ('makklays5', 'password', 'Alexander', 'Kuziv', 'man', '+380988705397', 'makklays@gmail.com', '1111222233334444')";
-                    //Statement stmt1 = con.createStatement();
-                    //ResultSet rs1 = stmt1.executeQuery();
                 }
 
                 rs.close();
@@ -182,14 +172,10 @@ public class RegistrationController {
             alertText.setText("Enter last name");
             proceed = false;
         }
-        if (GenderMan.isSelected() == false && GenderWoman.isSelected() == false && proceed == true) {
+        if (!GenderMan.isSelected() && !GenderWoman.isSelected() && proceed == true) {
             alertText.setText("Select gender");
             proceed = false;
         }
-        /*if (chk1.isSelected() == false && chk2.isSelected() == false && chk3.isSelected() == false && proceed == true) {
-            errorlbl.setText("Select post");
-            proceed = false;
-        }*/
         if (PhoneText.getText().isEmpty() && proceed == true) {
             alertText.setText("Enter phone");
             proceed = false;
@@ -202,10 +188,6 @@ public class RegistrationController {
             alertText.setText("Enter your Credit Card");
             proceed = false;
         }
-        /*if (city.getValue() == null && proceed == true) {
-            errorlbl.setText("Select city");
-            proceed = false;
-        }*/
 
         return proceed;
     }
