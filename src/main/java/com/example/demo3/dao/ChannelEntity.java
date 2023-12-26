@@ -18,8 +18,7 @@ public class ChannelEntity {
     private String description;
     //private Date birthDate;
 
-
-    @OneToMany(mappedBy="channels")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="channels", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "channel_id") // ? channel_id or id
     private Set<CompanyEntity> companies;
 

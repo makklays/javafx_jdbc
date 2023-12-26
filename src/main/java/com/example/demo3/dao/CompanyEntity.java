@@ -10,7 +10,7 @@ public class CompanyEntity {
     private int id;
     private int channel_id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="channel_id", nullable=false, insertable = false, updatable = false)
     private ChannelEntity channel;
 

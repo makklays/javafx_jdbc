@@ -1,5 +1,9 @@
 package com.example.demo3.dao;
 
+import com.example.demo3.utils.HibernateSessionFactory;
+import org.hibernate.Session;
+import org.hibernate.mapping.List;
+
 import java.util.Objects;
 import javax.persistence.*;
 //import java.util.Date;
@@ -194,5 +198,10 @@ public class UserEntity {
                 ", phone=" + phone +
                 '}';
     }
+
+    /*public List<UserEntity> readAll() {
+        Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession();
+        return (List<UserEntity>) session.createQuery("from users").list();
+    }*/
 }
 

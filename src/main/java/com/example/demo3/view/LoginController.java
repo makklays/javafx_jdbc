@@ -5,6 +5,7 @@ import com.example.demo3.HelloApplication;
 
 import com.example.demo3.dao.UserEntity;
 
+import com.example.demo3.utils.HibernateSessionFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -14,14 +15,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -58,94 +59,101 @@ public class LoginController {
 
     @FXML
     protected void onEnterButtonClick() throws IOException, SQLException {
-        try {
-            AlertText.setTextFill(Color.BLACK);
-            AlertText.setText(Login.getText() + " " + Password.getText());
+        AlertText.setTextFill(Color.BLACK);
+        AlertText.setText(Login.getText() + " " + Password.getText());
 
-            // log
-            logger.info("login ==> " + Login.getText() + " password ==> " + Password.getText());
+        // log
+        logger.info("login ==> " + Login.getText() + " password ==> " + Password.getText());
 
-            //--- Hibernate -----------
-            UserEntity user = new UserEntity();
-            user.setLogin("MakKlays");
-            user.setFirstname("Alexanderrrr");
-            user.setLastname("Kuzivvvvv");
-            user.setPassword("12345678");
-            user.setPhone("+380988705397");
-            user.setEmail("makklays@gmail.com");
-            user.setCity("CITY 22");
-            user.setGender("man");
-            user.setCode("1111222233334444");
-            user.setIsAuth(false);
+        //--- Hibernate example insert -----------
+        /*Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
 
-            /*
-            Configuration conf = new Configuration().configure;
-            conf.addAnnotatedClass(UserEntity.class);
-            StandardServiceRegistryBuilder sBilder = new StandardServiceRegistryBuilder()
-                    .applySettings(conf.getProperties());
-            SessionFactory sf = conf.buildSessionFactory(sBilder.build());
-            // create
-            Session sessionCreate = sf.openSession();
-            Transaction trCreate = sessionCreate.beginTransaction; // Начало транзакции
-            sessionCreate.save(user);
-            trCreate.commit();
-            sessionCreate.close(); // Завершение транзакции
-            // read
-            Session sessionRead = sf.openSession();
-            Transaction trRead = sessionRead.beginTransaction();
-            Student usr1 = sessionRead.find(UserEntity.class, o:1);
-            System.out.println(usr1.toString());
-            trRead.commit();
-            sessionCreate.close();
-            */
-            //--- END Hibernate ----------
+        UserEntity user = new UserEntity();
+        user.setLogin("MakKlays");
+        user.setFirstname("Alexanderrrr");
+        user.setLastname("Kuzivvvvv");
+        user.setPassword("12345678");
+        user.setPhone("+380988705397");
+        user.setEmail("makklays@gmail.com");
+        user.setCity("CITY 22");
+        user.setGender("man");
+        user.setCode("1111222233334444");
+        user.setIsAuth(false);
 
-            // connection to MySQL server
-            DbmsConnection dbmsconnection = DbmsConnection.getInstance();
-            Connection con = dbmsconnection.getConnection();
+        session.save(user);
+        session.getTransaction().commit();
+        session.close();*/
+        //--- END Hibernate ----------
 
-            String sql = "SELECT * FROM users WHERE login=? AND password=? ";
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, Login.getText());
-            stmt.setString(2, Password.getText());
+        Session session1 = HibernateSessionFactory.getSessionFactory().openSession();
+        Criteria userCriteria = session1.createCriteria(UserEntity.class);
+        userCriteria.add(Restrictions.eq("login", Login.getText()));
+        UserEntity user = (UserEntity) userCriteria.uniqueResult();
+        session1.close();
 
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                AlertText.setTextFill(Color.GREEN);
-                AlertText.setText("Authorized");
-                System.out.println("User exist in the database");
+        logger.info("UserEntity ==> firstname " + user.getFirstname() + " lastname ==> " + user.getLastname());
 
-                // log
-                logger.info("User exist in the database");
-                if (logger.isLoggable(Level.FINE)) {
-                    logger.fine("Authorized");
-                }
-
-                // new scene 'layout-view.fxml'
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
-                Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-                Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
-                primaryStage.setScene(scene1);
-
-            } else {
-                AlertText.setTextFill(Color.RED);
-                AlertText.setText("User didn't found");
-                System.out.println("User not exist in the database");
-
-                logger.info("User not exist in the database");
+        if (!user.getLogin().isEmpty()) {
+            AlertText.setTextFill(Color.GREEN);
+            AlertText.setText("Authorized");
+            System.out.println("User exist in the database");
+            logger.info("User exist in the database");
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("Authorized");
             }
 
-            rs.close();
-            stmt.close();
-            con.close();
+            // new scene 'layout-view.fxml'
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
+            Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+            Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
+            primaryStage.setScene(scene1);
+
+        } else {
+            AlertText.setTextFill(Color.RED);
+            AlertText.setText("User didn't found");
+            System.out.println("User not exist in the database");
+            logger.info("User not exist in the database");
         }
-        catch (SQLException e) {
+
+        // connection to MySQL server
+        /*DbmsConnection dbmsconnection = DbmsConnection.getInstance();
+        Connection con = dbmsconnection.getConnection();
+
+        String sql = "SELECT * FROM users WHERE login=? AND password=? ";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, Login.getText());
+        stmt.setString(2, Password.getText());
+
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            AlertText.setTextFill(Color.GREEN);
+            AlertText.setText("Authorized");
+            System.out.println("User exist in the database");
+
             // log
-            logger.log(Level.WARNING, "SQLException :", e);
-        } catch (IOException e) {
-            // log
-            logger.log(Level.WARNING, "IOException | ClassNotFoundException :", e);
+            logger.info("User exist in the database");
+            if (logger.isLoggable(Level.FINE)) {
+                logger.fine("Authorized");
+            }
+
+            // new scene 'layout-view.fxml'
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
+            Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+            Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
+            primaryStage.setScene(scene1);
+
+        } else {
+            AlertText.setTextFill(Color.RED);
+            AlertText.setText("User didn't found");
+            System.out.println("User not exist in the database");
+
+            logger.info("User not exist in the database");
         }
+
+        rs.close();
+        stmt.close();
+        con.close();*/
     }
 }
 
