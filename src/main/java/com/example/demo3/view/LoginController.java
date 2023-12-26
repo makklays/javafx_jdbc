@@ -86,13 +86,14 @@ public class LoginController {
         session.close();*/
         //--- END Hibernate ----------
 
-        Session session1 = HibernateSessionFactory.getSessionFactory().openSession();
-        Criteria userCriteria = session1.createCriteria(UserEntity.class);
-        userCriteria.add(Restrictions.eq("login", Login.getText()));
-        UserEntity user = (UserEntity) userCriteria.uniqueResult();
-        session1.close();
 
-        logger.info("UserEntity ==> firstname " + user.getFirstname() + " lastname ==> " + user.getLastname());
+         Session session1 = HibernateSessionFactory.getSessionFactory().openSession();
+         Criteria userCriteria = session1.createCriteria(UserEntity.class);
+         userCriteria.add(Restrictions.eq("login", Login.getText()));
+         UserEntity user = (UserEntity) userCriteria.uniqueResult();
+         session1.close();
+
+         logger.info("UserEntity ==> firstname " + user.getFirstname() + " lastname ==> " + user.getLastname());
 
         if (!user.getLogin().isEmpty()) {
             AlertText.setTextFill(Color.GREEN);
