@@ -1,28 +1,19 @@
 package com.example.demo3.view;
 
-import com.example.demo3.configuration.DbmsConnection;
 import com.example.demo3.HelloApplication;
-
+import com.example.demo3.configuration.DbmsConnection;
 import com.example.demo3.dao.UserEntity;
-
 import com.example.demo3.utils.HibernateSessionFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.hibernate.*;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
-
 import java.io.IOException;
 import java.sql.*;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -86,38 +77,8 @@ public class LoginController {
         session.close();*/
         //--- END Hibernate ----------
 
-        Session session1 = HibernateSessionFactory.getSessionFactory().openSession();
-        Criteria userCriteria = session1.createCriteria(UserEntity.class);
-        userCriteria.add(Restrictions.eq("login", Login.getText()));
-        UserEntity user = (UserEntity) userCriteria.uniqueResult();
-        session1.close();
-
-        logger.info("UserEntity ==> firstname " + user.getFirstname() + " lastname ==> " + user.getLastname());
-
-        if (!user.getLogin().isEmpty()) {
-            AlertText.setTextFill(Color.GREEN);
-            AlertText.setText("Authorized");
-            System.out.println("User exist in the database");
-            logger.info("User exist in the database");
-            if (logger.isLoggable(Level.FINE)) {
-                logger.fine("Authorized");
-            }
-
-            // new scene 'layout-view.fxml'
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
-            Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-            Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
-            primaryStage.setScene(scene1);
-
-        } else {
-            AlertText.setTextFill(Color.RED);
-            AlertText.setText("User didn't found");
-            System.out.println("User not exist in the database");
-            logger.info("User not exist in the database");
-        }
-
         // connection to MySQL server
-        /*DbmsConnection dbmsconnection = DbmsConnection.getInstance();
+        DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
         String sql = "SELECT * FROM users WHERE login=? AND password=? ";
@@ -153,7 +114,7 @@ public class LoginController {
 
         rs.close();
         stmt.close();
-        con.close();*/
+        con.close();
     }
 }
 

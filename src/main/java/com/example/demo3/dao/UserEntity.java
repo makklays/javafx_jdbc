@@ -1,16 +1,12 @@
 package com.example.demo3.dao;
 
-import com.example.demo3.utils.HibernateSessionFactory;
-import org.hibernate.Session;
-import org.hibernate.mapping.List;
-
 import java.util.Objects;
 import javax.persistence.*;
-//import java.util.Date;
 
 @Entity
 @Table(name = "users", schema = "", catalog = "ai_bot_for_seo")
 public class UserEntity {
+
     private Integer id;
     private String login;
     private String firstname;
@@ -26,6 +22,7 @@ public class UserEntity {
     private String updated_at;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
@@ -198,10 +195,5 @@ public class UserEntity {
                 ", phone=" + phone +
                 '}';
     }
-
-    /*public List<UserEntity> readAll() {
-        Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession();
-        return (List<UserEntity>) session.createQuery("from users").list();
-    }*/
 }
 

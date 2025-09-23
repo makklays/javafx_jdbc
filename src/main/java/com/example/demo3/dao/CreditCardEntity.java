@@ -1,11 +1,11 @@
 package com.example.demo3.dao;
 
 import javax.persistence.*;
-//import java.util.Date;
 
 @Entity
 @Table(name = "creditcards", schema = "", catalog = "ai_bot_for_seo")
 public class CreditCardEntity {
+
     private int id;
     private int account;
     private String bank;
@@ -17,7 +17,8 @@ public class CreditCardEntity {
     private String phone;
 
     @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }

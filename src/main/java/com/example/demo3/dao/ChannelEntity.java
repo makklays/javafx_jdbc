@@ -8,18 +8,19 @@ import java.util.Set;
 public class ChannelEntity {
 
     @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
+
     @Basic
     @Column(name = "title", nullable = false, insertable = true, updatable = true, length = 60)
     private String title;
+
     @Basic
     @Column(name = "description", nullable = false, insertable = true, updatable = true, length = 60)
     private String description;
-    //private Date birthDate;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy="channels", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "channel_id") // ? channel_id or id
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="channel", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<CompanyEntity> companies;
 
     public Long getId() {
@@ -30,7 +31,6 @@ public class ChannelEntity {
         this.id = id;
     }
 
-
     public String getTitle() {
         return title;
     }
@@ -38,7 +38,6 @@ public class ChannelEntity {
     public void setTitle(String title) {
         this.title = title;
     }
-
 
     public String getDescription() {
         return description;

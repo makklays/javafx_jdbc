@@ -1,9 +1,10 @@
 package com.example.demo3.model;
 
 import com.example.demo3.configuration.DbmsConnection;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class User
 {
@@ -31,8 +32,8 @@ public class User
         this.email = email;
         this.city = city;
         this.code = code;
-        this.created_at = "2023-12-06 20:50:00";
-        this.updated_at = "2023-12-06 20:50:00";
+        this.created_at = now();
+        this.updated_at = now();
     }
 
     public User(String login, String firstname, String lastname, String password, String gender, String phone, String email, String city) {
@@ -44,8 +45,8 @@ public class User
         this.phone = phone;
         this.email = email;
         this.city = city;
-        this.created_at = "2023-12-06 20:50:00";
-        this.updated_at = "2023-12-06 20:50:00";
+        this.created_at = now();
+        this.updated_at = now();
     }
 
     public User(String firstname, String lastname, String password, String gender, String phone, String email, String city) {
@@ -56,41 +57,42 @@ public class User
         this.phone = phone;
         this.email = email;
         this.city = city;
-        this.created_at = "2023-12-06 20:50:00";
-        this.updated_at = "2023-12-06 20:50:00";
+        this.created_at = now();
+        this.updated_at = now();
     }
 
-    public boolean insertUser()
-    {
-        try {
-            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/makklaysdb", "admin", "admin");
-            // or
-            DbmsConnection dbmsconnection = DbmsConnection.getInstance();
-            Connection con = dbmsconnection.getConnection();
+    // утилита для текущего времени
+    private String now() {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
 
-            String sql1 = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?) ";
-            PreparedStatement stmt1 = con.prepareStatement(sql1);
-            stmt1.setString(1, this.login);
-            stmt1.setString(2, this.password);
-            stmt1.setString(3, this.firstname);
-            stmt1.setString(4, this.lastname);
-            stmt1.setString(5, this.gender);
-            stmt1.setString(6, this.phone);
-            stmt1.setString(7, this.email);
+    public boolean insertUser() {
+        String sql = "INSERT INTO users (login, password, firstname, lastname, gender, phone, email, created_at, updated_at) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            int i = stmt1.executeUpdate();
-            if (i > 0) {
-                System.out.println("You was successfully inserted a new user");
+        try (Connection con = DbmsConnection.getInstance().getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setString(1, this.login);
+            stmt.setString(2, this.password); // TODO: зашифровать пароль
+            stmt.setString(3, this.firstname);
+            stmt.setString(4, this.lastname);
+            stmt.setString(5, this.gender);
+            stmt.setString(6, this.phone);
+            stmt.setString(7, this.email);
+            stmt.setString(8, this.created_at);
+            stmt.setString(9, this.updated_at);
+
+            int rows = stmt.executeUpdate();
+            if (rows > 0) {
+                System.out.println("✅ Пользователь добавлен: " + this.login);
+                return true;
             } else {
-                System.out.println("Can't insert a new user in the database");
+                System.out.println("⚠️ Не удалось вставить пользователя: " + this.login);
+                return false;
             }
-
-            System.out.println("Loading driver...");
-
-		    return true;
-
-        } catch (Exception sqlEx) {
-            sqlEx.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -199,5 +201,4 @@ public class User
         this.updated_at = updated_at;
     }
 }
-
 

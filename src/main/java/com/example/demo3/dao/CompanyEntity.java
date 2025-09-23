@@ -1,17 +1,20 @@
 package com.example.demo3.dao;
 
 import javax.persistence.*;
-import java.util.Set;
-//import java.util.Date;
 
 @Entity
 @Table(name = "companies", schema = "", catalog = "ai_bot_for_seo")
 public class CompanyEntity {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
     private int channel_id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name="channel_id", nullable=false, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "channel_id")
     private ChannelEntity channel;
 
     private String title;
@@ -23,13 +26,11 @@ public class CompanyEntity {
     private String start_from;
     private String comments;
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
