@@ -30,7 +30,6 @@ public class UserEntity {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -40,7 +39,6 @@ public class UserEntity {
     public String getLogin() {
         return login;
     }
-
     public void setLogin(String login) {
         this.login = login;
     }
@@ -50,7 +48,6 @@ public class UserEntity {
     public String getFirstname() {
         return firstname;
     }
-
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
@@ -60,7 +57,6 @@ public class UserEntity {
     public String getLastname() {
         return lastname;
     }
-
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
@@ -70,7 +66,6 @@ public class UserEntity {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -80,7 +75,6 @@ public class UserEntity {
     public String getGender() {
         return gender;
     }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
@@ -90,7 +84,6 @@ public class UserEntity {
     public String getPhone() {
         return phone;
     }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
@@ -100,7 +93,6 @@ public class UserEntity {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -110,7 +102,6 @@ public class UserEntity {
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
@@ -120,7 +111,6 @@ public class UserEntity {
     public boolean getIsAuth() {
         return isAuth;
     }
-
     public void setIsAuth(boolean isAuth) {
         this.isAuth = isAuth;
     }
@@ -130,7 +120,6 @@ public class UserEntity {
     public String getCode() {
         return code;
     }
-
     public void setCode(String code) {
         this.code = code;
     }
@@ -140,7 +129,6 @@ public class UserEntity {
     public String getCreatedAt() {
         return created_at;
     }
-
     public void setCreatedAt(String created_at) {
         this.created_at = created_at;
     }
@@ -150,11 +138,9 @@ public class UserEntity {
     public String getUpdatedAt() {
         return updated_at;
     }
-
     public void setUpdatedAt(String updated_at) {
         this.updated_at = updated_at;
     }
-
 
     @Override
     public boolean equals(Object o) {
