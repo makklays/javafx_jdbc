@@ -69,7 +69,7 @@ public class ChannelController implements Initializable {
         ObservableList<Channel> list = FXCollections.observableArrayList();
 
         while(rs.next()) {
-            Channel channel = new Channel(rs.getInt("id"), rs.getString("title"), rs.getString("description"));
+            Channel channel = new Channel(rs.getInt("id"), rs.getString("title"), rs.getString("descr"));
             list.add(channel);
         }
 
