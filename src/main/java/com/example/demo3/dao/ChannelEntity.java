@@ -17,7 +17,7 @@ public class ChannelEntity {
     private String title;
 
     @Basic
-    @Column(name = "description", nullable = false, insertable = true, updatable = true, length = 60)
+    @Column(name = "descr", nullable = false, insertable = true, updatable = true, length = 60)
     private String description;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy="channel", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
