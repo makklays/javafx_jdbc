@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import org.hibernate.Session;
 
 import java.io.IOException;
+import java.net.*;
 import java.sql.SQLException;
 
 public class InfoController {
@@ -31,6 +32,8 @@ public class InfoController {
     private Button InfoButton;
     @FXML
     private Button ExitButton;
+    @FXML
+    private Button ProsmotrButton;
 
     @FXML
     public void CreditCardButton(ActionEvent actionEvent) throws IOException, SQLException {
@@ -97,6 +100,78 @@ public class InfoController {
         session.close();
         //--- END Hibernate ----------
     }
+
+    @FXML
+    public void onProsmotrClick(ActionEvent actionEvent) throws IOException, SQLException {
+        // TODO: check proxy ip
+        // curl -x http://proxy_server:proxy_port --proxy-user username:password -L http://url
+        // when check it - what function ?
+
+        // send request
+        System.setProperty("http.proxySet", "true");
+        System.setProperty("http.proxyHost", "217.29.53.133");
+        System.setProperty("http.proxyPort", "80"); //
+        System.setProperty("http.proxyUser" , "gEehc5");
+        System.setProperty("http.proxyPassword" , "P2fkdU");
+
+        URL site = new URL("https://t.me/minu_odin/3");
+        HttpURLConnection connection = (HttpURLConnection) site.openConnection();
+
+        connection.setRequestMethod("GET");
+        connection.setReadTimeout(90*1000);
+        connection.connect();
+        System.out.println(connection.getResponseMessage()+" ---- "+connection.getResponseCode()+" ----- "+connection.getContent());
+
+        // variant 2
+        /*Proxy proxy1 = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("217.29.53.133", 8080));
+        URL url1 = new URL("https://t.me/minu_odin/3");
+        HttpURLConnection uc = (HttpURLConnection)url1.openConnection(proxy1);
+        uc.connect();
+
+        System.out.println(uc.getResponseMessage()+" ---- "+uc.getResponseCode()+" ----- "+uc.getContent());
+
+        StringBuffer tmp = new StringBuffer();
+        BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+        String line;
+        while ((line = in.readLine()) != null){
+            System.out.println(line);
+        }*/
+
+        // variant 3
+        /*var url = new URL("https://t.me/minu_odin/3");
+        var proxyAddress = new InetSocketAddress("217.29.62.250", 12011);
+
+        var proxy = new Proxy(Proxy.Type.SOCKS, proxyAddress);
+        var connection = (URLConnection) url.openConnection(proxy);
+
+        try (var inputStream = connection.getInputStream()) {
+            var bytes = inputStream.readAllBytes();
+            var content = new String(bytes);
+            System.out.println("IP: " + content);
+        }*/
+
+        // variant 4
+        /*CloseableHttpClient httpclient = HttpClients.custom().useSystemProperties().build();
+        try {
+            HttpGet httpGet = new HttpGet("http://www.google.com");
+            CloseableHttpResponse httpResponse = httpclient.execute(httpGet);
+            try {
+                System.out.println(httpResponse.getStatusLine());
+                for (Header header : response.getAllHeaders()) {
+                    System.out.println("header " + header.getName() + " - " + header.getValue());
+                }
+                String responseString = EntityUtils.toString(httpResponse.getEntity());
+                System.out.println("responseString :" + responseString);
+            } finally {
+                response.close();
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            httpclient.close();
+        }*/
+    }
+
 
     @FXML
     public void ExitButton(ActionEvent actionEvent) throws IOException, SQLException {

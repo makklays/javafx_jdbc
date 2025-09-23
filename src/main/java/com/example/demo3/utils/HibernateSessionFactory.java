@@ -12,14 +12,14 @@ public class HibernateSessionFactory {
 
     protected static SessionFactory buildSessionFactory() {
 
-        Configuration cfg = new Configuration();
-        cfg.configure("src/main/resources/hibernate.cfg.xml"); // populates the data of the configuration file
-        //creating seession factory object
-        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties())
+         Configuration cfg = new Configuration();
+         cfg.configure("src/main/resources/hibernate.cfg.xml"); // populates the data of the configuration file
+         //creating seession factory object
+         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties())
                 .build();
-        SessionFactory sessionFactory = cfg.buildSessionFactory(serviceRegistry);
+         SessionFactory sessionFactory = cfg.buildSessionFactory(serviceRegistry);
 
-        return sessionFactory;
+         return sessionFactory;
     }
 
     public static SessionFactory getSessionFactory() {

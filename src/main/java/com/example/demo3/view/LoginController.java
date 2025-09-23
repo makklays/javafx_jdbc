@@ -86,13 +86,14 @@ public class LoginController {
         session.close();*/
         //--- END Hibernate ----------
 
-        Session session1 = HibernateSessionFactory.getSessionFactory().openSession();
-        Criteria userCriteria = session1.createCriteria(UserEntity.class);
-        userCriteria.add(Restrictions.eq("login", Login.getText()));
-        UserEntity user = (UserEntity) userCriteria.uniqueResult();
-        session1.close();
 
-        logger.info("UserEntity ==> firstname " + user.getFirstname() + " lastname ==> " + user.getLastname());
+         /*Session session1 = HibernateSessionFactory.getSessionFactory().openSession();
+         Criteria userCriteria = session1.createCriteria(UserEntity.class);
+         userCriteria.add(Restrictions.eq("login", Login.getText()));
+         UserEntity user = (UserEntity) userCriteria.uniqueResult();
+         session1.close();
+
+         logger.info("UserEntity ==> firstname " + user.getFirstname() + " lastname ==> " + user.getLastname());
 
         if (!user.getLogin().isEmpty()) {
             AlertText.setTextFill(Color.GREEN);
@@ -114,10 +115,10 @@ public class LoginController {
             AlertText.setText("User didn't found");
             System.out.println("User not exist in the database");
             logger.info("User not exist in the database");
-        }
+        }*/
 
         // connection to MySQL server
-        /*DbmsConnection dbmsconnection = DbmsConnection.getInstance();
+        DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
 
         String sql = "SELECT * FROM users WHERE login=? AND password=? ";
@@ -153,7 +154,7 @@ public class LoginController {
 
         rs.close();
         stmt.close();
-        con.close();*/
+        con.close();
     }
 }
 
