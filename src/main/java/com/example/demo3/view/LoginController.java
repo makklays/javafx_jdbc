@@ -77,40 +77,6 @@ public class LoginController {
         session.close();*/
         //--- END Hibernate ----------
 
-<<<<<<< HEAD
-=======
-
-         /*Session session1 = HibernateSessionFactory.getSessionFactory().openSession();
-         Criteria userCriteria = session1.createCriteria(UserEntity.class);
-         userCriteria.add(Restrictions.eq("login", Login.getText()));
-         UserEntity user = (UserEntity) userCriteria.uniqueResult();
-         session1.close();
-
-         logger.info("UserEntity ==> firstname " + user.getFirstname() + " lastname ==> " + user.getLastname());
-
-        if (!user.getLogin().isEmpty()) {
-            AlertText.setTextFill(Color.GREEN);
-            AlertText.setText("Authorized");
-            System.out.println("User exist in the database");
-            logger.info("User exist in the database");
-            if (logger.isLoggable(Level.FINE)) {
-                logger.fine("Authorized");
-            }
-
-            // new scene 'layout-view.fxml'
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));
-            Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
-            Stage primaryStage = (Stage) LoginButton.getScene().getWindow();
-            primaryStage.setScene(scene1);
-
-        } else {
-            AlertText.setTextFill(Color.RED);
-            AlertText.setText("User didn't found");
-            System.out.println("User not exist in the database");
-            logger.info("User not exist in the database");
-        }*/
-
->>>>>>> c5113ec2555ee4c9d609fb0fdc0a99bfd8b6d824
         // connection to MySQL server
         DbmsConnection dbmsconnection = DbmsConnection.getInstance();
         Connection con = dbmsconnection.getConnection();
