@@ -1,0 +1,88 @@
+
+.button:hover {
+	//-fx-background-color:blue;
+	//-fx-text-fill:#000000;
+}
+.button {
+	//-fx-background-color:#FFFFFF;
+	//-fx-text-fill:#000000;
+}
+
+.label {
+	//-fx-background-color:#FFFFFF;
+	//-fx-text-fill:#000000;
+	-fx-min-width: 130px;
+	-fx-alignment: baseline-right;
+	-fx-text-alignment: CENTER;
+	-fx-label-padding: 8px 10px 8px 0;
+	-fx-content-display: right;
+}
+
+.toggle-group {
+	-fx-label-padding: 10px 0 10px 10px;
+	-fx-pref-width: 200px;
+}
+.combo-box {
+	-fx-label-padding: 10px 0 10px 10px;
+	-fx-pref-width: 200px;
+}
+.radio-button {
+	//-fx-padding: 0px 0 5px 5px;
+	-fx-content-display: center;
+	//-fx-alignment: baseline-right;
+	//-fx-min-width: 200px;
+	-fx-text-overrun: center-ellipsis;
+}
+.check-box {
+	-fx-padding: 5px 0 5px 0;
+	-fx-content-display: center;
+	-fx-text-overrun: center-ellipsis;
+}
+
+#labelID_1 {
+	-fx-background-color:#FFFFFF;
+	-fx-text-fill:#000000;
+	text-align:right;
+}
+
+.button {
+	//-fx-margin: 30px 0 0 0;
+	-fx-min-width: 100px;
+	-fx-alignment: center;
+	//-fx-start-margin: 20;
+	//-fx-end-margin: 20;
+}
+
+#error_lbl {
+	//-fx-min-width: 200px;
+	-fx-alignment: center-left;
+	-fx-text-alignment: LEFT;
+	-fx-label-padding: 8px 0 8px 0;
+	-fx-content-display: left;
+}
+
+#regisration {
+	-fx-font-size: 24px;
+}
+
+#my_vbox {
+	//-fx-spacing: 0;
+	-fx-alignment: center; //or top-center
+	//-fx-text-alignment: center;
+	//-fx-background-color: red;
+	//-fx-pref-width: 100%;
+	//-fx-pref-height: 100%;
+}
+#label_id, #password_id {
+	-fx-min-width: 220px;
+	-fx-alignment: center;
+
+	//-fx-text-alignment: center;
+	-fx-label-padding: 6px 0 6px 0;
+	-fx-content-display: center;
+}
+#password_tf {
+	-fx-text-alignment: center;
+}
+
+

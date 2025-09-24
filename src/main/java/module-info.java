@@ -16,14 +16,14 @@ module com.example.demo3 {
     //requires javax.naming.Referenceable;
     requires java.naming;
 
-    opens com.example.demo3 to javafx.fxml;
+    opens com.techmatrix.javafx_jdbc to javafx.fxml;
     //opens sample.Datamodel;
-    exports com.example.demo3;
-    exports com.example.demo3.model;
-    opens com.example.demo3.model to javafx.fxml;
-    exports com.example.demo3.view;
-    opens com.example.demo3.view to javafx.fxml;
-    exports com.example.demo3.configuration;
-    opens com.example.demo3.configuration to javafx.fxml;
+    exports com.techmatrix.javafx_jdbc;
+    exports com.techmatrix.javafx_jdbc.model;
+    opens com.techmatrix.javafx_jdbc.model to javafx.fxml;
+    exports com.techmatrix.javafx_jdbc.view;
+    opens com.techmatrix.javafx_jdbc.view to javafx.fxml;
+    exports com.techmatrix.javafx_jdbc.configuration;
+    opens com.techmatrix.javafx_jdbc.configuration to javafx.fxml;
 }
 
