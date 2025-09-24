@@ -74,7 +74,7 @@ public class TaskController implements Initializable {
     @FXML
     private Label statusLabel;
     @FXML
-    private TextArea descriptionArea;
+    private Label descriptionLabel;
     @FXML
     private Button CloseDetailsButton;
 
@@ -146,7 +146,7 @@ public class TaskController implements Initializable {
             // Передаём данные задачи
             controller.titleLabel.setText(task.getTitle());
             controller.statusLabel.setText(task.getStatus());
-            controller.descriptionArea.setText(task.getDescription());
+            controller.descriptionLabel.setText(task.getDescription());
 
             // Меняем содержимое текущей сцены
             // Загружаем содержимое в правый блок

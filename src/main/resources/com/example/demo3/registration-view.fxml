@@ -10,7 +10,7 @@
     <children>
         <AnchorPane prefHeight="500.0" prefWidth="310.0" style="-fx-background-image: url('file:/home/alexander/IdeaProjects/demo3/src/main/resources/images/bots.jpg');">
             <children>
-                <Label graphicTextGap="10.0" layoutX="69.0" layoutY="100.0" prefHeight="30.0" prefWidth="173.0" style="-fx-font-size: 24px;" text="AI Bot for SEO" textAlignment="CENTER" textFill="WHITE">
+                <Label graphicTextGap="10.0" layoutX="69.0" layoutY="100.0" prefHeight="30.0" prefWidth="173.0" style="-fx-font-size: 24px;" text="AI Bot" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="28.0" />
                     </font></Label>

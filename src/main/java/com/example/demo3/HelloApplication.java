@@ -32,7 +32,7 @@ public class HelloApplication extends Application {
         // first window
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
-        stage.setTitle("AI BOT for SEO");
+        stage.setTitle("AI BOT");
         stage.setScene(scene1);
         stage.show();
     }

@@ -10,7 +10,7 @@
         <AnchorPane prefHeight="800.0" prefWidth="260.0" style="-fx-background-color: #123456;">
             <children>
                 <Label layoutX="23.0" layoutY="768.0" text="Copyright (c). All Right Reserved" textFill="#fcfcfc" />
-                <Label layoutX="20.0" layoutY="8.0" text="AI BOT of SEO" textFill="WHITE">
+                <Label layoutX="20.0" layoutY="8.0" text="AI BOT" textFill="WHITE">
                     <font>
                         <Font size="31.0" />
                     </font>
@@ -27,14 +27,12 @@
 
             </children>
         </AnchorPane>
+
         <AnchorPane layoutX="260.0" prefHeight="800.0" prefWidth="840.0">
             <children>
-                <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Companies">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
+                <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Companies" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
                 <Label layoutX="26.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="List of Companies" />
+
                 <Label layoutX="27.0" layoutY="228.0" text="3. Целевое количество подписчиков:" />
                 <Spinner fx:id="CountSubscribeSpiner" editable="true" layoutX="296.0" layoutY="225.0" prefHeight="24.0" prefWidth="121.0" BorderPane.alignment="CENTER" />
                 <Slider fx:id="CountSubscribeSlider" blockIncrement="1.0" layoutX="45.0" layoutY="258.0" majorTickUnit="5000.0" max="50000.0" minorTickCount="5" prefHeight="38.0" prefWidth="761.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />

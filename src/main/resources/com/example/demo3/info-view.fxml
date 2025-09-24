@@ -10,7 +10,7 @@
         <AnchorPane prefHeight="800.0" prefWidth="260.0" style="-fx-background-color: #123456;">
             <children>
                 <Label layoutX="23.0" layoutY="768.0" text="Copyright (c). All Right Reserved" textFill="#fcfcfc" />
-                <Label layoutX="20.0" layoutY="8.0" text="AI BOT of SEO" textFill="WHITE">
+                <Label layoutX="20.0" layoutY="8.0" text="AI BOT" textFill="WHITE">
                     <font>
                         <Font size="31.0" />
                     </font>
@@ -26,15 +26,18 @@
                 <ImageView fitHeight="192.0" fitWidth="205.0" layoutX="31.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('file:/home/alexander/IdeaProjects/demo3/src/main/resources/images/bot1.png');" />
             </children>
         </AnchorPane>
+
         <AnchorPane layoutX="260.0" prefHeight="800.0" prefWidth="840.0">
             <children>
-                <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Info">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <Label layoutX="26.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="Datas and description" />
-            <Button fx:id="ProsmotrButton" layoutX="158.0" layoutY="173.0" mnemonicParsing="false" onAction="#onProsmotrClick" text="Просмотр" />
+                <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Info" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+                <Label layoutX="24.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="Datas and description" />
+
+                <Label layoutX="24.0" layoutY="100.0" text="This is JavaFX demo program. " />
+                <Label layoutX="24.0" layoutY="120.0" text="This simple program to demonstrate my knowledge and hard skills in Java." />
+
+                <Label layoutX="24.0" layoutY="160.0" text="My name is Alexander Kuziv. I'm Java Developer. " />
+                <Label layoutX="24.0" layoutY="180.0" text="My email: makklays@gmail.com " />
+                <Label layoutX="24.0" layoutY="200.0" text="My mobile: +38 098 8705397 " />
 
             </children>
         </AnchorPane>
