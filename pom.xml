@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example.demo3</groupId>
-    <artifactId>demo3</artifactId>
+    <groupId>com.techmatrix18.javafx_jdbc</groupId>
+    <artifactId>javafx_jdbc</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>demo3</name>
+    <name>javafx_jdbc</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

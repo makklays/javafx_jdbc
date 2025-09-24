@@ -174,7 +174,7 @@ public class ExampleForm
 
         Scene scene = new Scene(vbox, 800, 500);
 
-        scene.getStylesheets().add(getClass().getResource("/com.example.demo3/mystyle.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/com.techmatrix18.javafx_jdbc/mystyle.css").toExternalForm());
 
         primaryStage.setTitle("Department of Cyberpolice");
         primaryStage.setScene(scene);

@@ -1,4 +1,4 @@
-module com.example.demo3 {
+module com.techmatrix18.javafx_jdbc {
     requires javafx.controls;
     requires javafx.fxml;
 

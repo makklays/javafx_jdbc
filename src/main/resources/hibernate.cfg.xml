@@ -14,8 +14,6 @@
         <!--mapping resource="logic/Bus.hbm.xml"/-->
         <!--mapping resource="logic/Driver.hbm.xml"/-->
         <!--mapping resource="logic/Route.hbm.xml"/-->
-
-        <mapping class="com.example.demo3.dao.ChannelEntity"/>
     </session-factory>
 </hibernate-configuration>
 
