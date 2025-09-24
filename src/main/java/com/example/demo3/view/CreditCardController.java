@@ -50,6 +50,8 @@ public class CreditCardController implements Initializable {
     @FXML
     private Button InfoButton;
     @FXML
+    private Button TasksButton;
+    @FXML
     private Button ExitButton;
     @FXML
     private TextField searchText;
@@ -177,6 +179,14 @@ public class CreditCardController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("info-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) InfoButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
+    }
+
+    @FXML
+    public void TasksButton(ActionEvent actionEvent) throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tasks.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+        Stage primaryStage = (Stage) TasksButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 

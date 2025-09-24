@@ -33,6 +33,8 @@ public class ChannelController implements Initializable {
     @FXML
     private Button InfoButton;
     @FXML
+    private Button TasksButton;
+    @FXML
     private Button AddChannelButton;
     @FXML
     private Button ListChannelsButton;
@@ -223,6 +225,14 @@ public class ChannelController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("info-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) InfoButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
+    }
+
+    @FXML
+    protected void TasksButton() throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tasks.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+        Stage primaryStage = (Stage) TasksButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 

@@ -22,6 +22,7 @@
                 <Button fx:id="UploadDatasButton" layoutX="21.0" layoutY="161.0" mnemonicParsing="false" onAction="#UploadDatasButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Upload datas" textFill="#123456" />
                 <Button fx:id="StatisticsButton" layoutX="20.0" layoutY="195.0" mnemonicParsing="false" onAction="#StatisticsButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Statistics" textFill="#123456" />
                 <Button fx:id="InfoButton" layoutX="20.0" layoutY="230.0" mnemonicParsing="false" onAction="#InfoButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Info" textFill="#123456" />
+                <Button fx:id="TasksButton" layoutX="20.0" layoutY="264.0" mnemonicParsing="false" onAction="#TasksButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Tasks" textFill="#123456" />
                 <Button fx:id="ExitButton" layoutX="20.0" layoutY="727.0" mnemonicParsing="false" onAction="#ExitButton" prefHeight="24.0" prefWidth="219.0" style="-fx-cursor: hand; -fx-background-color: #FFF;" text="Exit" textFill="#123456" />
                 <ImageView fitHeight="192.0" fitWidth="205.0" layoutX="31.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url('file:/home/alexander/IdeaProjects/demo3/src/main/resources/images/bot1.png');" />
             </children>

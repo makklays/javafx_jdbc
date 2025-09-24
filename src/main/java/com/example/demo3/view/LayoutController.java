@@ -6,13 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.*;
 
@@ -25,6 +20,8 @@ public class LayoutController {
     private Button StatisticsButton;
     @FXML
     private Button InfoButton;
+    @FXML
+    private Button TasksButton;
     @FXML
     private Button ChannelButton;
     @FXML
@@ -81,6 +78,14 @@ public class LayoutController {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("info-view.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
         Stage primaryStage = (Stage) InfoButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
+    }
+
+    @FXML
+    protected void onTasksButtonClick() throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tasks.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+        Stage primaryStage = (Stage) TasksButton.getScene().getWindow();
         primaryStage.setScene(scene1);
     }
 

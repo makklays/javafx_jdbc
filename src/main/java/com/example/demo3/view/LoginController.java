@@ -2,16 +2,12 @@ package com.example.demo3.view;
 
 import com.example.demo3.HelloApplication;
 import com.example.demo3.configuration.DbmsConnection;
-import com.example.demo3.dao.UserEntity;
-import com.example.demo3.utils.HibernateSessionFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.hibernate.*;
-import org.hibernate.criterion.Restrictions;
 import java.io.IOException;
 import java.sql.*;
 import java.util.logging.Level;
@@ -97,6 +93,9 @@ public class LoginController {
             if (logger.isLoggable(Level.FINE)) {
                 logger.fine("Authorized");
             }
+
+            // Add user to session - user_id
+            com.example.demo3.utils.Session.getInstance().setUserId(1L);
 
             // new scene 'layout-view.fxml'
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout-view.fxml"));

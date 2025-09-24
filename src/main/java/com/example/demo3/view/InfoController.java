@@ -31,6 +31,8 @@ public class InfoController {
     @FXML
     private Button InfoButton;
     @FXML
+    private Button TasksButton;
+    @FXML
     private Button ExitButton;
     @FXML
     private Button ProsmotrButton;
@@ -170,6 +172,14 @@ public class InfoController {
         } finally {
             httpclient.close();
         }*/
+    }
+
+    @FXML
+    public void TasksButton(ActionEvent actionEvent) throws IOException, SQLException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tasks.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+        Stage primaryStage = (Stage) TasksButton.getScene().getWindow();
+        primaryStage.setScene(scene1);
     }
 
 
