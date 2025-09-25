@@ -30,8 +30,10 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // first window
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
-        Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("layout2.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load(), 1100, 800);
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
+        //Scene scene1 = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("AI BOT");
         stage.setScene(scene1);
         stage.show();

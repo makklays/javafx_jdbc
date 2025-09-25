@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.techmatrix.javafx_jdbc.view.Task2Controller"
+            prefHeight="600.0" prefWidth="850.0">
+
+    <!-- Блок списка задач -->
+    <AnchorPane fx:id="taskListBlock" prefHeight="600.0" prefWidth="850.0">
+        <children>
+            <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Tasks" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <Label layoutX="26.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="List of tasks" />
+            <Button fx:id="AddNewTaskButton" layoutX="711.0" layoutY="28.0" mnemonicParsing="false" onAction="#onAddNewTaskButton" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Add task" />
+
+            <ProgressIndicator fx:id="loadingIndicator" layoutX="200" layoutY="150" prefWidth="100" prefHeight="100"/>
+
+            <TableView fx:id="TasksTable" layoutX="18.0" layoutY="88.0" prefHeight="573.0" prefWidth="802.0">
+            <columns>
+                <TableColumn fx:id="Column1" prefWidth="66.0" text="ID" />
+                <TableColumn fx:id="Column2" minWidth="0.0" prefWidth="349.0" text="Title" />
+                <TableColumn fx:id="Column3" prefWidth="373.0" text="Status" />
+            </columns>
+            </TableView>
+        </children>
+    </AnchorPane>
+
+    <!-- Блок деталей задачи -->
+    <AnchorPane fx:id="taskDetailBlock" prefHeight="600.0" prefWidth="850.0" visible="false" managed="false">
+        <children>
+            <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Task Details" />
+
+            <Button fx:id="EditTaskButton" layoutX="611.0" layoutY="28.0" mnemonicParsing="false" onAction="#onEditTaskButton" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Edit task" />
+            <Button fx:id="AddTaskButton" layoutX="711.0" layoutY="28.0" mnemonicParsing="false" onAction="#onDeleteTaskButton" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Delete task" />
+
+            <Label layoutX="24.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="Views one of tasks" />
+
+            <Label layoutX="24.0" layoutY="65.0" fx:id="titleLabel" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding:30 0 0 0;" />
+
+            <HBox layoutX="24.0" layoutY="130.0" spacing="10">
+                <Label text="Status:" />
+                <Label fx:id="statusLabel" />
+            </HBox>
+
+            <Label layoutX="24.0" layoutY="160.0" text="Description:" />
+            <Label layoutX="24.0" layoutY="180.0" fx:id="descriptionLabel" />
+
+            <Button layoutX="24.0" layoutY="728.0" fx:id="CancelDetailsButton" maxWidth="100" onAction="#onCancelTaskButton" text="Cancel" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" />
+        </children>
+    </AnchorPane>
+
+    <!-- Блок для добавления задачи -->
+    <AnchorPane fx:id="taskAddBlock" prefHeight="600.0" prefWidth="850.0" visible="false" managed="false">
+        <children>
+            <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Tasks" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <Label layoutX="26.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="List of Channels" />
+            <Button layoutX="704.0" layoutY="28.0" mnemonicParsing="false" onAction="#onListTasksButton" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="List tasks" />
+
+            <Label layoutX="26.0" layoutY="155.0" text="Title:" />
+            <TextField fx:id="TitleTextAdd" layoutX="24.0" layoutY="180.0" prefHeight="24.0" prefWidth="424.0" />
+            <Label layoutX="26.0" layoutY="216.0" text="Description:" />
+            <TextArea fx:id="DescrAreaAdd" layoutX="24.0" layoutY="239.0" prefHeight="200.0" prefWidth="424.0" />
+
+            <Label layoutX="26.0" layoutY="111.0" text="Add a new task" style="-fx-font-size: 18px;" />
+
+            <Button layoutX="24.0" layoutY="467.0" mnemonicParsing="false" onAction="#onSendDataAddTaskButton" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Add" />
+            <Button layoutX="140.0" layoutY="467.0" mnemonicParsing="false" onAction="#onCancelTaskButton" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Cancel" />
+            <Label fx:id="AlertTextAdd" layoutX="25.0" layoutY="445.0" />
+        </children>
+    </AnchorPane>
+
+    <!-- Блок для редактирования задачи -->
+    <AnchorPane fx:id="taskEditBlock" prefHeight="600.0" prefWidth="850.0" visible="false" managed="false">
+        <children>
+            <Label alignment="TOP_LEFT" layoutX="24.0" layoutY="19.0" prefHeight="21.0" prefWidth="484.0" text="Tasks" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <Label layoutX="26.0" layoutY="45.0" prefHeight="16.0" prefWidth="473.0" text="List of Channels" />
+            <Button layoutX="704.0" layoutY="28.0" mnemonicParsing="false" onAction="#onListTasksButton" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="List tasks" />
+
+            <Label layoutX="26.0" layoutY="155.0" text="Title:" />
+            <TextField fx:id="TitleText" layoutX="24.0" layoutY="180.0" prefHeight="24.0" prefWidth="424.0" />
+            <Label layoutX="26.0" layoutY="216.0" text="Description:" />
+            <TextArea fx:id="DescrArea" layoutX="24.0" layoutY="239.0" prefHeight="200.0" prefWidth="424.0" />
+
+            <Label layoutX="26.0" layoutY="111.0" text="Edit task" style="-fx-font-size: 18px;" />
+
+            <Button layoutX="24.0" layoutY="467.0" mnemonicParsing="false" onAction="#onSendDataEditTaskButton" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Edit" />
+            <Button layoutX="140.0" layoutY="467.0" mnemonicParsing="false" onAction="#onCancelTaskButton" prefHeight="24.0" prefWidth="96.0" style="-fx-background-color: #123456; -fx-text-fill: #FFFFFF;" text="Cancel" />
+            <Label fx:id="AlertText" layoutX="25.0" layoutY="445.0" />
+        </children>
+    </AnchorPane>
+
+</AnchorPane>
+
